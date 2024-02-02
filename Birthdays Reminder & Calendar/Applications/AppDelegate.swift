@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  Birthdays Reminder & Calendar
-//
-//  Created by Daniil Yushkevich on 2.02.24.
-//
-
 import UIKit
 import CoreData
 
