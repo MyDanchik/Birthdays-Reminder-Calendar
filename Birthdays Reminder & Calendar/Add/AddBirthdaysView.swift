@@ -8,24 +8,16 @@ final class DefaultAddBirthdaysView: UIViewController, UINavigationControllerDel
     
     private let addImageView = UIImageView()
     private let addImageButton = UIButton()
-    private let nameStackView = UIStackView()
-    private let nameTitleLabel = UILabel()
-    private let nameLabel = UILabel()
+
+    private let nameTextField = UITextField()
+
     
-    private let nameTextView = UITextView()
+    private let surnameTextField = UITextField()
     
-    private let nameChangeButton = UIButton()
-    private let surnameStackView = UIStackView()
-    private let surnameLabel = UILabel()
-    
-    private let surnameTextView = UITextView()
-    
-    private let ratingValueLabel = UILabel()
-    private let ratingChangeButton = UIButton()
-    private let releaseStackView = UIStackView()
-    private let releaseLabel = UILabel()
-    private let releaseDateLabel = UILabel()
-    private let releaseChangeButton = UIButton()
+    private let dateStackView = UIStackView()
+    private let dateLabel = UILabel()
+    private let birthdaysDateLabel = UILabel()
+    private let birthdaysChangeButton = UIButton()
     private let descriptionTextView = UITextView()
     
     // MARK: - Lifecycle Methods
@@ -49,18 +41,16 @@ final class DefaultAddBirthdaysView: UIViewController, UINavigationControllerDel
     private func setupSubviews() {
         view.addSubview(addImageView)
         view.addSubview(addImageButton)
-        view.addSubview(nameTextView)
-        view.addSubview(surnameTextView)
+        view.addSubview(nameTextField)
+        view.addSubview(surnameTextField)
         
-        view.addSubview(nameStackView)
-        view.addSubview(surnameStackView)
-        view.addSubview(releaseStackView)
+        view.addSubview(dateStackView)
         view.addSubview(descriptionTextView)
 
 
-        releaseStackView.addArrangedSubview(releaseLabel)
-        releaseStackView.addArrangedSubview(releaseDateLabel)
-        releaseStackView.addArrangedSubview(releaseChangeButton)
+        dateStackView.addArrangedSubview(dateLabel)
+        dateStackView.addArrangedSubview(birthdaysDateLabel)
+        dateStackView.addArrangedSubview(birthdaysChangeButton)
 
 
     }
@@ -79,30 +69,30 @@ final class DefaultAddBirthdaysView: UIViewController, UINavigationControllerDel
         addImageButton.heightAnchor.constraint(equalTo: addImageView.heightAnchor, multiplier: 1).isActive = true
         addImageButton.widthAnchor.constraint(equalTo: addImageView.widthAnchor, multiplier: 1).isActive = true
 
-        nameTextView.translatesAutoresizingMaskIntoConstraints = false
-        nameTextView.topAnchor.constraint(equalTo: addImageButton.bottomAnchor, constant: 32).isActive = true
-        nameTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
-        nameTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
-        nameTextView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        nameTextField.translatesAutoresizingMaskIntoConstraints = false
+        nameTextField.topAnchor.constraint(equalTo: addImageButton.bottomAnchor, constant: 32).isActive = true
+        nameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
+        nameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
+        nameTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
-        surnameTextView.translatesAutoresizingMaskIntoConstraints = false
-        surnameTextView.topAnchor.constraint(equalTo: nameTextView.bottomAnchor, constant: 10).isActive = true
-        surnameTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
-        surnameTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
-        surnameTextView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        surnameTextField.translatesAutoresizingMaskIntoConstraints = false
+        surnameTextField.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 10).isActive = true
+        surnameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
+        surnameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
+        surnameTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
-        releaseStackView.translatesAutoresizingMaskIntoConstraints = false
-        releaseStackView.topAnchor.constraint(equalTo: surnameTextView.bottomAnchor, constant: 20).isActive = true
-        releaseStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
-        releaseStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
-        releaseStackView.heightAnchor.constraint(equalToConstant: 84).isActive = true
-        releaseStackView.widthAnchor.constraint(equalToConstant: 125).isActive = true
+        dateStackView.translatesAutoresizingMaskIntoConstraints = false
+        dateStackView.topAnchor.constraint(equalTo: surnameTextField.bottomAnchor, constant: 20).isActive = true
+        dateStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
+        dateStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
+        dateStackView.heightAnchor.constraint(equalToConstant: 84).isActive = true
+        dateStackView.widthAnchor.constraint(equalToConstant: 125).isActive = true
         
         descriptionTextView.translatesAutoresizingMaskIntoConstraints = false
-        descriptionTextView.topAnchor.constraint(equalTo: releaseStackView.bottomAnchor, constant: 11).isActive = true
-        descriptionTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32).isActive = true
-        descriptionTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32).isActive = true
-        descriptionTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -47).isActive = true 
+        descriptionTextView.topAnchor.constraint(equalTo: dateStackView.bottomAnchor, constant: 11).isActive = true
+        descriptionTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
+        descriptionTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
+        descriptionTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -47).isActive = true
     }
     
     private func setupUI() {
@@ -125,37 +115,44 @@ final class DefaultAddBirthdaysView: UIViewController, UINavigationControllerDel
         addImageButton.setImage(UIImage(named: "addImageBirthdaysView"), for: .normal)
         addImageButton.addTarget(self, action: #selector(tapOnAlertButton), for: .touchUpInside)
 
-        nameTextView.text = "nameTextView"
-        nameTextView.backgroundColor = .green
-        nameTextView.font = UIFont(name: "Manrope-Regular", size: 14)
-        nameTextView.textColor = .titleColors
+        nameTextField.placeholder = "nameTextView"
+        nameTextField.backgroundColor = .systemGray5
+        nameTextField.font = UIFont(name: "Manrope-Regular", size: 14)
+        nameTextField.textColor = .titleColors
+        nameTextField.layer.borderWidth = 2.0
+        nameTextField.layer.cornerRadius = 10
         
-        surnameTextView.text = "surnameTextView"
-        surnameTextView.backgroundColor = .red
-        surnameTextView.font = UIFont(name: "Manrope-Regular", size: 14)
-        surnameTextView.textColor = .titleColors
+        surnameTextField.placeholder = "surnameTextView"
+        surnameTextField.backgroundColor = .systemGray5
+        surnameTextField.font = UIFont(name: "Manrope-Regular", size: 14)
+        surnameTextField.textColor = .titleColors
+        surnameTextField.layer.borderWidth = 2.0
+        surnameTextField.layer.cornerRadius = 10
+        
         
     
-        releaseStackView.axis = .vertical
-        releaseStackView.alignment = .center
+        dateStackView.axis = .vertical
+        dateStackView.alignment = .center
         
-        releaseLabel.text = "Date"
-        releaseLabel.textColor = .titleColors
-        releaseLabel.font = UIFont(name: "Manrope-Medium", size: 18)
+        dateLabel.text = "Date birthday"
+        dateLabel.textColor = .titleColors
+        dateLabel.font = UIFont(name: "Manrope-Medium", size: 20)
         
-        releaseDateLabel.text = "-"
-        releaseDateLabel.textColor = .titleColors
-        releaseDateLabel.font = UIFont(name: "Manrope-Medium", size: 18)
+        birthdaysDateLabel.text = "-"
+        birthdaysDateLabel.textColor = .titleColors
+        birthdaysDateLabel.font = UIFont(name: "Manrope-Medium", size: 18)
         
-        releaseChangeButton.setTitle("Change", for: .normal)
-        releaseChangeButton.setTitleColor(.systemBlue, for: .normal)
-        releaseChangeButton.addTarget(self, action: #selector(tapOnReleaseChangeButton), for: .touchUpInside)
-        releaseChangeButton.titleLabel?.font = UIFont(name: "Manrope-Medium", size: 18)
+        birthdaysChangeButton.setTitle("Change", for: .normal)
+        birthdaysChangeButton.setTitleColor(.systemBlue, for: .normal)
+        birthdaysChangeButton.addTarget(self, action: #selector(tapOnReleaseChangeButton), for: .touchUpInside)
+        birthdaysChangeButton.titleLabel?.font = UIFont(name: "Manrope-Medium", size: 18)
         
         descriptionTextView.text = "enter a gift Ideas"
-        descriptionTextView.backgroundColor = .clear
+        descriptionTextView.backgroundColor = .systemGray5
         descriptionTextView.font = UIFont(name: "Manrope-Regular", size: 14)
         descriptionTextView.textColor = .titleColors
+        descriptionTextView.layer.borderWidth = 2.0
+        descriptionTextView.layer.cornerRadius = 10
         
     }
     
@@ -198,7 +195,7 @@ final class DefaultAddBirthdaysView: UIViewController, UINavigationControllerDel
         viewModel.transitionReleaseView = { [weak self] releaseScreenView in
             self?.navigationController?.pushViewController(releaseScreenView, animated: true)
             releaseScreenView.viewModel.setReleaseClosure = { [weak self] release in
-                self?.releaseDateLabel.text = release
+                self?.birthdaysDateLabel.text = release
             }
         }
     }
@@ -226,9 +223,9 @@ final class DefaultAddBirthdaysView: UIViewController, UINavigationControllerDel
     
     private func saveBirthdays() {
         guard let imageBirthdays = addImageView.image?.jpegData(compressionQuality: 1.0),
-              let nameBirthdays = nameTextView.text, !nameBirthdays.isEmpty,
-              let surnameBirthdays = surnameTextView.text, !surnameBirthdays.isEmpty,
-              let releaseDateBirthdays = releaseDateLabel.text, !releaseDateBirthdays.isEmpty,
+              let nameBirthdays = nameTextField.text, !nameBirthdays.isEmpty,
+              let surnameBirthdays = surnameTextField.text, !surnameBirthdays.isEmpty,
+              let releaseDateBirthdays = birthdaysDateLabel.text, !releaseDateBirthdays.isEmpty,
               let descriptionBirthdays = descriptionTextView.text, !descriptionBirthdays.isEmpty else { return }
         
         viewModel.saveNewBirthdays(imageBirthdays: imageBirthdays,
@@ -290,7 +287,7 @@ extension DefaultAddBirthdaysView: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[.originalImage] as? UIImage {
             setupImage(image: image)
-            viewModel.saveNewBirthdays(imageBirthdays: image.jpegData(compressionQuality: 1.0), nameBirthdays: nameTextView.text, surnameBirthdays: surnameTextView.text, releaseDateBirthdays: releaseDateLabel.text, descriptionBirthdays: descriptionTextView.text)
+            viewModel.saveNewBirthdays(imageBirthdays: image.jpegData(compressionQuality: 1.0), nameBirthdays: nameTextField.text, surnameBirthdays: surnameTextField.text, releaseDateBirthdays: birthdaysDateLabel.text, descriptionBirthdays: descriptionTextView.text)
         }
         picker.dismiss(animated: true, completion: nil)
     }

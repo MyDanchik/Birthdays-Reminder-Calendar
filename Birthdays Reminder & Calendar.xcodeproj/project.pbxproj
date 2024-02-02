@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		982481512B6CF147008722DD /* ReleaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982481502B6CF147008722DD /* ReleaseView.swift */; };
 		982481532B6CF152008722DD /* ReleaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982481522B6CF152008722DD /* ReleaseViewModel.swift */; };
-		982481562B6CFA2E008722DD /* Birthdays_Reminder_Calendar.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 982481542B6CFA2E008722DD /* Birthdays_Reminder_Calendar.xcdatamodeld */; };
 		988157F32B6CD69200BA67B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988157F22B6CD69200BA67B2 /* AppDelegate.swift */; };
 		988157F52B6CD69200BA67B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988157F42B6CD69200BA67B2 /* SceneDelegate.swift */; };
 		988157FA2B6CD69200BA67B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 988157F82B6CD69200BA67B2 /* Main.storyboard */; };
@@ -27,14 +26,14 @@
 		988158262B6CDF4500BA67B2 /* MainViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988158252B6CDF4500BA67B2 /* MainViewCell.swift */; };
 		988158282B6CDF4F00BA67B2 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988158272B6CDF4F00BA67B2 /* MainViewModel.swift */; };
 		9881582A2B6CDFCE00BA67B2 /* FullInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988158292B6CDFCE00BA67B2 /* FullInfoView.swift */; };
-		9881582D2B6CE02500BA67B2 /* AddMovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9881582C2B6CE02500BA67B2 /* AddMovieView.swift */; };
+		9881582D2B6CE02500BA67B2 /* AddBirthdaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9881582C2B6CE02500BA67B2 /* AddBirthdaysView.swift */; };
 		9881582F2B6CE03000BA67B2 /* AddBirthdaysViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9881582E2B6CE03000BA67B2 /* AddBirthdaysViewModel.swift */; };
+		9881EAB82B6D05F100340A8B /* Birthdays_Reminder_Calendar.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9881EAB62B6D05F100340A8B /* Birthdays_Reminder_Calendar.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		982481502B6CF147008722DD /* ReleaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseView.swift; sourceTree = "<group>"; };
 		982481522B6CF152008722DD /* ReleaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseViewModel.swift; sourceTree = "<group>"; };
-		982481552B6CFA2E008722DD /* Birthdays_Reminder___Calendar.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Birthdays_Reminder___Calendar.xcdatamodel"; sourceTree = "<group>"; };
 		988157EF2B6CD69200BA67B2 /* Birthdays Reminder & Calendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Birthdays Reminder & Calendar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		988157F22B6CD69200BA67B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		988157F42B6CD69200BA67B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -54,8 +53,9 @@
 		988158252B6CDF4500BA67B2 /* MainViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCell.swift; sourceTree = "<group>"; };
 		988158272B6CDF4F00BA67B2 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		988158292B6CDFCE00BA67B2 /* FullInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullInfoView.swift; sourceTree = "<group>"; };
-		9881582C2B6CE02500BA67B2 /* AddMovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMovieView.swift; sourceTree = "<group>"; };
+		9881582C2B6CE02500BA67B2 /* AddBirthdaysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBirthdaysView.swift; sourceTree = "<group>"; };
 		9881582E2B6CE03000BA67B2 /* AddBirthdaysViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBirthdaysViewModel.swift; sourceTree = "<group>"; };
+		9881EAB72B6D05F100340A8B /* Birthdays_Reminder_Calendar.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Birthdays_Reminder_Calendar.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,8 +136,8 @@
 		988158212B6CDF1100BA67B2 /* CoreDataManager */ = {
 			isa = PBXGroup;
 			children = (
-				982481542B6CFA2E008722DD /* Birthdays_Reminder_Calendar.xcdatamodeld */,
 				9881580C2B6CDCF100BA67B2 /* CoreDataManager.swift */,
+				9881EAB62B6D05F100340A8B /* Birthdays_Reminder_Calendar.xcdatamodeld */,
 			);
 			path = CoreDataManager;
 			sourceTree = "<group>";
@@ -157,7 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				9824814F2B6CF13A008722DD /* pages */,
-				9881582C2B6CE02500BA67B2 /* AddMovieView.swift */,
+				9881582C2B6CE02500BA67B2 /* AddBirthdaysView.swift */,
 				9881582E2B6CE03000BA67B2 /* AddBirthdaysViewModel.swift */,
 			);
 			path = Add;
@@ -244,12 +244,12 @@
 				988158242B6CDF3900BA67B2 /* MainView.swift in Sources */,
 				9881582F2B6CE03000BA67B2 /* AddBirthdaysViewModel.swift in Sources */,
 				988157F32B6CD69200BA67B2 /* AppDelegate.swift in Sources */,
-				9881582D2B6CE02500BA67B2 /* AddMovieView.swift in Sources */,
+				9881582D2B6CE02500BA67B2 /* AddBirthdaysView.swift in Sources */,
 				982481512B6CF147008722DD /* ReleaseView.swift in Sources */,
 				982481532B6CF152008722DD /* ReleaseViewModel.swift in Sources */,
 				9881580D2B6CDCF100BA67B2 /* CoreDataManager.swift in Sources */,
 				988158262B6CDF4500BA67B2 /* MainViewCell.swift in Sources */,
-				982481562B6CFA2E008722DD /* Birthdays_Reminder_Calendar.xcdatamodeld in Sources */,
+				9881EAB82B6D05F100340A8B /* Birthdays_Reminder_Calendar.xcdatamodeld in Sources */,
 				988157F52B6CD69200BA67B2 /* SceneDelegate.swift in Sources */,
 				988158282B6CDF4F00BA67B2 /* MainViewModel.swift in Sources */,
 				9881582A2B6CDFCE00BA67B2 /* FullInfoView.swift in Sources */,
@@ -477,12 +477,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		982481542B6CFA2E008722DD /* Birthdays_Reminder_Calendar.xcdatamodeld */ = {
+		9881EAB62B6D05F100340A8B /* Birthdays_Reminder_Calendar.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				982481552B6CFA2E008722DD /* Birthdays_Reminder___Calendar.xcdatamodel */,
+				9881EAB72B6D05F100340A8B /* Birthdays_Reminder_Calendar.xcdatamodel */,
 			);
-			currentVersion = 982481552B6CFA2E008722DD /* Birthdays_Reminder___Calendar.xcdatamodel */;
+			currentVersion = 9881EAB72B6D05F100340A8B /* Birthdays_Reminder_Calendar.xcdatamodel */;
 			path = Birthdays_Reminder_Calendar.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
