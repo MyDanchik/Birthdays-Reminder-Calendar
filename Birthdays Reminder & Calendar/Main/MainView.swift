@@ -88,7 +88,7 @@ extension DefaultMainView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let birthdays = birthdaysList[indexPath.row]
-            let alertDelete = UIAlertController(title: "Удалить Фильм?", message: "", preferredStyle: .alert)
+            let alertDelete = UIAlertController(title: "Удалить напоминание?", message: "", preferredStyle: .alert)
             alertDelete.addAction(UIAlertAction(title: "Нет", style: .default, handler: nil))
             alertDelete.addAction(UIAlertAction(title: "Да", style: .destructive, handler: { _ in
                 _ = CoreDataManager.instance.deleteBirthdays(birthdays)

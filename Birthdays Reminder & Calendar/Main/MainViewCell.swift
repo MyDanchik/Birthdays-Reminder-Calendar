@@ -9,7 +9,7 @@ final class MainViewCell: UITableViewCell {
     private let infoView = UIView()
     private let nameLabel = UILabel()
     private let surnameLabel = UILabel()
-    private let defaultRatingBirthdaysLabel = UILabel()
+    private let birthdaysLabel = UILabel()
     
     // MARK: - Initialization
     
@@ -33,23 +33,23 @@ final class MainViewCell: UITableViewCell {
         containerView.addSubview(infoView)
         infoView.addSubview(nameLabel)
         infoView.addSubview(surnameLabel)
-        infoView.addSubview(defaultRatingBirthdaysLabel)
+        infoView.addSubview(birthdaysLabel)
     }
 
     
     private func setupConstraints() {
         containerView.translatesAutoresizingMaskIntoConstraints = false
-        containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 22).isActive = true
+        containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16).isActive = true
         containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 22).isActive = true
         containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -18).isActive = true
-        containerView.heightAnchor.constraint(equalToConstant: 212).isActive = true
-        containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -22).isActive = true
+        containerView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16).isActive = true
         
         birthdaysImage.translatesAutoresizingMaskIntoConstraints = false
         birthdaysImage.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
         birthdaysImage.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
         birthdaysImage.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
-        birthdaysImage.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.57).isActive = true
+        birthdaysImage.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.3).isActive = true
         
         infoView.translatesAutoresizingMaskIntoConstraints = false
         infoView.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
@@ -58,17 +58,20 @@ final class MainViewCell: UITableViewCell {
         infoView.leadingAnchor.constraint(equalTo: birthdaysImage.trailingAnchor).isActive = true
         
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        nameLabel.topAnchor.constraint(equalTo: infoView.topAnchor, constant: 34).isActive = true
+        nameLabel.topAnchor.constraint(equalTo: infoView.topAnchor, constant: 10).isActive = true
         nameLabel.leadingAnchor.constraint(equalTo: infoView.leadingAnchor, constant: 15).isActive = true
         nameLabel.trailingAnchor.constraint(equalTo: infoView.trailingAnchor, constant: -15).isActive = true
         
         surnameLabel.translatesAutoresizingMaskIntoConstraints = false
-        surnameLabel.bottomAnchor.constraint(equalTo: infoView.bottomAnchor, constant: -50).isActive = true
-        surnameLabel.leadingAnchor.constraint(equalTo: infoView.leadingAnchor, constant: 50).isActive = true
+        surnameLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 0).isActive = true
+        surnameLabel.leadingAnchor.constraint(equalTo: infoView.leadingAnchor, constant: 15).isActive = true
+        surnameLabel.trailingAnchor.constraint(equalTo: infoView.trailingAnchor, constant: -15).isActive = true
         
-        defaultRatingBirthdaysLabel.translatesAutoresizingMaskIntoConstraints = false
-        defaultRatingBirthdaysLabel.bottomAnchor.constraint(equalTo: infoView.bottomAnchor, constant: -50).isActive = true
-        defaultRatingBirthdaysLabel.leadingAnchor.constraint(equalTo: surnameLabel.trailingAnchor, constant: 2).isActive = true
+        
+        birthdaysLabel.translatesAutoresizingMaskIntoConstraints = false
+        birthdaysLabel.topAnchor.constraint(equalTo: surnameLabel.bottomAnchor, constant: 0).isActive = true
+        birthdaysLabel.leadingAnchor.constraint(equalTo: infoView.leadingAnchor, constant: 15).isActive = true
+        birthdaysLabel.trailingAnchor.constraint(equalTo: infoView.trailingAnchor, constant: -15).isActive = true
     }
     
     private func setupUI() {
@@ -80,20 +83,23 @@ final class MainViewCell: UITableViewCell {
         containerView.layer.shadowColor = UIColor.black.cgColor
         containerView.layer.shadowOffset = CGSize(width: 0, height: 2)
         containerView.layer.shadowRadius = 10
-        containerView.layer.shadowOpacity = 0.30
+        containerView.layer.shadowOpacity = 0.20
         
         nameLabel.numberOfLines = 0
         nameLabel.font = UIFont(name: "Manrope-Medium", size: 18)
-        nameLabel.textAlignment = .center
+        nameLabel.textAlignment = .right
         nameLabel.textColor = .titleColors
         
-        surnameLabel.font = UIFont(name: "Manrope-Bold", size: 18)
-        surnameLabel.textAlignment = .center
+        surnameLabel.numberOfLines = 0
+        surnameLabel.font = UIFont(name: "Manrope-Medium", size: 18)
+        surnameLabel.textAlignment = .right
         surnameLabel.textColor = .titleColors
         
-        defaultRatingBirthdaysLabel.font = UIFont(name: "Manrope-Regular", size: 18)
-        defaultRatingBirthdaysLabel.text = "/10"
-        defaultRatingBirthdaysLabel.textColor = .gray
+        birthdaysLabel.numberOfLines = 0
+        birthdaysLabel.font = UIFont(name: "Manrope-Bold", size: 18)
+        birthdaysLabel.textAlignment = .right
+        birthdaysLabel.textColor = .titleColors
+
         
         birthdaysImage.clipsToBounds = true
         birthdaysImage.layer.cornerRadius = 8
@@ -104,16 +110,25 @@ final class MainViewCell: UITableViewCell {
     // MARK: - Public Methods
     
     func configureEntity(birthdays: Birthdays) {
+        
         if let imageData = birthdays.imageBirthdays, let birthdaysImage = UIImage(data: imageData) {
             self.birthdaysImage.image = birthdaysImage
         } else {
             self.birthdaysImage.image = UIImage(named: "default_image")
         }
         nameLabel.text = birthdays.nameBirthdays
-        if let rating = Float(birthdays.surnameBirthdays ?? "-") {
-            surnameLabel.text = String(format: "%.1f", rating)
-        } else {
-            surnameLabel.text = birthdays.surnameBirthdays
+        surnameLabel.text = birthdays.surnameBirthdays
+
+        if let releaseDate = birthdays.releaseDateBirthdays {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd-MM-yyyy"
+            if let date = dateFormatter.date(from: releaseDate) {
+                let yearFormatter = DateFormatter()
+                yearFormatter.dateFormat = "dd.MM.yyyy"
+                birthdaysLabel.text = yearFormatter.string(from: date)
+            }
         }
     }
 }
+
+
