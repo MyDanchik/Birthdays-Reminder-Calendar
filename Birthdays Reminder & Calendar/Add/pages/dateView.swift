@@ -54,7 +54,7 @@ final class DefaultDateView: UIViewController {
     private func setupUI() {
         view.backgroundColor = .backgroundAddScreen
 
-        dateLabel.text = "Release Date"
+        dateLabel.text = "Birthday Date"
         dateLabel.textColor = .titleColors
         dateLabel.textAlignment = .center
         dateLabel.font = UIFont(name: "Manrope-Medium", size: 24)

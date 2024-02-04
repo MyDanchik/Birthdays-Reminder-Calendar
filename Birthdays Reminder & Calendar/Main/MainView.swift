@@ -91,7 +91,7 @@ final class DefaultMainView: UIViewController {
             }
             
             for birthday in self.birthdaysList {
-                guard let birthdayDateString = birthday.releaseDateBirthdays,
+                guard let birthdayDateString = birthday.dateBirthdays,
                       let birthdayDate = self.dateFormatter.date(from: birthdayDateString) else {
                     continue
                 }

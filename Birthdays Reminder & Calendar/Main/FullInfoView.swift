@@ -15,6 +15,8 @@ final class DefaulFullInfoView: UIViewController {
     private let dateLabel = UILabel()
     private let descriptionTextView = UITextView()
     
+    
+    private let ageTextLabel = UILabel()
     private let ageLabel = UILabel()
     
     
@@ -42,6 +44,7 @@ final class DefaulFullInfoView: UIViewController {
         
         infoView.addSubview(dateTextLabel)
         infoView.addSubview(dateLabel)
+        infoView.addSubview(ageTextLabel)
         infoView.addSubview(ageLabel)
         
         infoView.addSubview(descriptionTextView)
@@ -79,18 +82,25 @@ final class DefaulFullInfoView: UIViewController {
         
         dateTextLabel.translatesAutoresizingMaskIntoConstraints = false
         dateTextLabel.topAnchor.constraint(equalTo: nameView.bottomAnchor, constant: 20).isActive = true
-        dateTextLabel.centerXAnchor.constraint(equalTo: infoView.centerXAnchor).isActive = true
+        dateTextLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         dateTextLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 0).isActive = true
         
         dateLabel.translatesAutoresizingMaskIntoConstraints = false
-        dateLabel.topAnchor.constraint(equalTo: dateTextLabel.bottomAnchor, constant: 10).isActive = true
-        dateLabel.centerXAnchor.constraint(equalTo: infoView.centerXAnchor).isActive = true
+        dateLabel.topAnchor.constraint(equalTo: nameView.bottomAnchor, constant: 20).isActive = true
+        dateLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         dateLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 0).isActive = true
         
         
+        
+        ageTextLabel.translatesAutoresizingMaskIntoConstraints = false
+        ageTextLabel.topAnchor.constraint(equalTo: dateTextLabel.bottomAnchor, constant: 10).isActive = true
+        ageTextLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        ageTextLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 0).isActive = true
+        
+        
         ageLabel.translatesAutoresizingMaskIntoConstraints = false
-        ageLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 10).isActive = true
-        ageLabel.centerXAnchor.constraint(equalTo: infoView.centerXAnchor).isActive = true
+        ageLabel.topAnchor.constraint(equalTo: dateTextLabel.bottomAnchor, constant: 10).isActive = true
+        ageLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         ageLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 0).isActive = true
         
         descriptionTextView.translatesAutoresizingMaskIntoConstraints = false
@@ -128,23 +138,31 @@ final class DefaulFullInfoView: UIViewController {
         birthdaysSurNameLabel.textColor = .titleColors
         
         dateTextLabel.backgroundColor = .clear
-        dateTextLabel.text = "День рождение"
-        dateTextLabel.font = UIFont(name: "Manrope-Medium", size: 12)
+        dateTextLabel.text = "День рождение:"
+        dateTextLabel.font = UIFont(name: "Manrope-Medium", size: 21)
         dateTextLabel.textColor = .titleColors
         
         dateLabel.backgroundColor = .clear
         dateLabel.textColor = .titleColors
-        dateLabel.font = UIFont(name: "Manrope-Medium", size: 20)
+        dateLabel.font = UIFont(name: "Manrope-Medium", size: 21)
         
+        
+        ageTextLabel.backgroundColor = .clear
+        ageTextLabel.text = "Исполнится:"
+        ageTextLabel.font = UIFont(name: "Manrope-Medium", size: 21)
+        ageTextLabel.textColor = .titleColors
         
         ageLabel.backgroundColor = .clear
         ageLabel.textColor = .titleColors
-        ageLabel.font = UIFont(name: "Manrope-Medium", size: 20)
+        ageLabel.font = UIFont(name: "Manrope-Medium", size: 21)
         
-        descriptionTextView.font = UIFont(name: "Manrope-Regular", size: 14)
-        descriptionTextView.backgroundColor = .clear
+        descriptionTextView.font = UIFont(name: "Manrope-Regular", size: 18)
+        descriptionTextView.backgroundColor = .backgroundCell
         descriptionTextView.textColor = .titleColors
         descriptionTextView.isEditable = false
+        descriptionTextView.layer.borderWidth = 1
+        descriptionTextView.layer.borderColor = UIColor.borderColors.cgColor
+        descriptionTextView.layer.cornerRadius = 10
     }
     
     // MARK: - Public Methods
@@ -165,7 +183,7 @@ final class DefaulFullInfoView: UIViewController {
             if let birthDate = dateFormatter.date(from: releaseDate) {
                 let age = calculateAge(from: birthDate)
                 dateLabel.text = dateFormatter.string(from: birthDate)
-                ageLabel.text = " Исполнится: \(age)"
+                ageLabel.text = "\(age) лет"
             }
         }
         

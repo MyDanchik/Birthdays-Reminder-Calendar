@@ -3,6 +3,16 @@
     {
       "filename" : "addImage.pdf",
       "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "imageWW.png",
+      "idiom" : "universal"
     }
   ],
   "info" : {

@@ -71,31 +71,36 @@ final class DefaultAddBirthdaysView: UIViewController, UINavigationControllerDel
 
         nameTextField.translatesAutoresizingMaskIntoConstraints = false
         nameTextField.topAnchor.constraint(equalTo: addImageButton.bottomAnchor, constant: 32).isActive = true
-        nameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
-        nameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
+        nameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        nameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         nameTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         surnameTextField.translatesAutoresizingMaskIntoConstraints = false
         surnameTextField.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 10).isActive = true
-        surnameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
-        surnameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
+        surnameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        surnameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         surnameTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         dateStackView.translatesAutoresizingMaskIntoConstraints = false
         dateStackView.topAnchor.constraint(equalTo: surnameTextField.bottomAnchor, constant: 20).isActive = true
-        dateStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
-        dateStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
+        dateStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        dateStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         dateStackView.heightAnchor.constraint(equalToConstant: 84).isActive = true
         dateStackView.widthAnchor.constraint(equalToConstant: 125).isActive = true
         
         descriptionTextView.translatesAutoresizingMaskIntoConstraints = false
         descriptionTextView.topAnchor.constraint(equalTo: dateStackView.bottomAnchor, constant: 11).isActive = true
-        descriptionTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
-        descriptionTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
-        descriptionTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -47).isActive = true
+        descriptionTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        descriptionTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        descriptionTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40).isActive = true
     }
     
     private func setupUI() {
+        
+        
+        let namePaddingView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: nameTextField.frame.height))
+        let surnamePaddingView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: surnameTextField.frame.height))
+        
         view.backgroundColor = .backgroundAddScreen
         
         title = "Add new birthday"
@@ -106,7 +111,7 @@ final class DefaultAddBirthdaysView: UIViewController, UINavigationControllerDel
         }))
         navigationItem.backButtonTitle = ""
         
-        addImageView.backgroundColor = .circleAddScreen
+        addImageView.backgroundColor = .backgroundCell
         addImageView.layer.masksToBounds = true
         addImageView.layer.cornerRadius = 10
         addImageView.contentMode = .scaleAspectFill
@@ -116,21 +121,25 @@ final class DefaultAddBirthdaysView: UIViewController, UINavigationControllerDel
         addImageButton.addTarget(self, action: #selector(tapOnAlertButton), for: .touchUpInside)
 
         nameTextField.placeholder = "nameTextView"
-        nameTextField.backgroundColor = .systemGray5
-        nameTextField.font = UIFont(name: "Manrope-Regular", size: 14)
+        nameTextField.backgroundColor = .backgroundCell
+        nameTextField.font = UIFont(name: "Manrope-Regular", size: 18)
         nameTextField.textColor = .titleColors
-        nameTextField.layer.borderWidth = 2.0
+        nameTextField.layer.borderWidth = 1.0
         nameTextField.layer.cornerRadius = 10
+        nameTextField.leftView = namePaddingView
+        nameTextField.leftViewMode = .always
+        nameTextField.layer.borderColor = UIColor.borderColors.cgColor
         
         surnameTextField.placeholder = "surnameTextView"
-        surnameTextField.backgroundColor = .systemGray5
-        surnameTextField.font = UIFont(name: "Manrope-Regular", size: 14)
+        surnameTextField.backgroundColor = .backgroundCell
+        surnameTextField.font = UIFont(name: "Manrope-Regular", size: 18)
         surnameTextField.textColor = .titleColors
-        surnameTextField.layer.borderWidth = 2.0
+        surnameTextField.layer.borderWidth = 1.0
         surnameTextField.layer.cornerRadius = 10
+        surnameTextField.leftView = surnamePaddingView
+        surnameTextField.leftViewMode = .always
+        surnameTextField.layer.borderColor = UIColor.borderColors.cgColor
         
-        
-    
         dateStackView.axis = .vertical
         dateStackView.alignment = .center
         
@@ -148,11 +157,12 @@ final class DefaultAddBirthdaysView: UIViewController, UINavigationControllerDel
         birthdaysChangeButton.titleLabel?.font = UIFont(name: "Manrope-Medium", size: 18)
         
         descriptionTextView.text = "enter a gift Ideas"
-        descriptionTextView.backgroundColor = .systemGray5
-        descriptionTextView.font = UIFont(name: "Manrope-Regular", size: 14)
+        descriptionTextView.backgroundColor = .backgroundCell
+        descriptionTextView.font = UIFont(name: "Manrope-Regular", size: 18)
         descriptionTextView.textColor = .titleColors
-        descriptionTextView.layer.borderWidth = 2.0
+        descriptionTextView.layer.borderWidth = 1.0
         descriptionTextView.layer.cornerRadius = 10
+        descriptionTextView.layer.borderColor = UIColor.borderColors.cgColor
         
     }
     
@@ -163,7 +173,6 @@ final class DefaultAddBirthdaysView: UIViewController, UINavigationControllerDel
     }
     
     @objc func tapOnReleaseChangeButton() {
-        print("12")
         viewModel.transitionRelease()
         
     }
@@ -192,9 +201,9 @@ final class DefaultAddBirthdaysView: UIViewController, UINavigationControllerDel
                 self?.navigationController?.popViewController(animated: true)
             }
         }
-        viewModel.transitionReleaseView = { [weak self] releaseScreenView in
-            self?.navigationController?.pushViewController(releaseScreenView, animated: true)
-            releaseScreenView.viewModel.setReleaseClosure = { [weak self] release in
+        viewModel.transitionReleaseView = { [weak self] dateScreenView in
+            self?.navigationController?.pushViewController(dateScreenView, animated: true)
+            dateScreenView.viewModel.setDateClosure = { [weak self] release in
                 self?.birthdaysDateLabel.text = release
             }
         }
@@ -296,3 +305,4 @@ extension DefaultAddBirthdaysView: UIImagePickerControllerDelegate {
         picker.dismiss(animated: true, completion: nil)
     }
 }
+
