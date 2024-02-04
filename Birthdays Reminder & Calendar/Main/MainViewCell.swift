@@ -110,7 +110,6 @@ final class MainViewCell: UITableViewCell {
     // MARK: - Public Methods
     
     func configureEntity(birthdays: Birthdays) {
-        
         if let imageData = birthdays.imageBirthdays, let birthdaysImage = UIImage(data: imageData) {
             self.birthdaysImage.image = birthdaysImage
         } else {
@@ -119,15 +118,21 @@ final class MainViewCell: UITableViewCell {
         nameLabel.text = birthdays.nameBirthdays
         surnameLabel.text = birthdays.surnameBirthdays
 
-        if let releaseDate = birthdays.releaseDateBirthdays {
+        if let releaseDate = birthdays.dateBirthdays {
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "dd-MM-yyyy"
-            if let date = dateFormatter.date(from: releaseDate) {
-                let yearFormatter = DateFormatter()
-                yearFormatter.dateFormat = "dd.MM.yyyy"
-                birthdaysLabel.text = yearFormatter.string(from: date)
+            dateFormatter.dateFormat = "dd.MM.yyyy"
+            if let birthDate = dateFormatter.date(from: releaseDate) {
+                let age = calculateAge(from: birthDate)
+                birthdaysLabel.text = "Возраст: \(age)"
             }
         }
+    }
+
+    func calculateAge(from birthday: Date) -> Int {
+        let currentDate = Date()
+        let calendar = Calendar.current
+        let ageComponents = calendar.dateComponents([.year], from: birthday, to: currentDate)
+        return ageComponents.year ?? 0
     }
 }
 

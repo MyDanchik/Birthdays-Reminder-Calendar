@@ -10,12 +10,14 @@ final class DefaulFullInfoView: UIViewController {
     private let nameView = UIView()
     private let birthdaysNameLabel = UILabel()
     private let birthdaysSurNameLabel = UILabel()
-
+    
     private let dateTextLabel = UILabel()
     private let dateLabel = UILabel()
     private let descriptionTextView = UITextView()
-
-
+    
+    private let ageLabel = UILabel()
+    
+    
     
     // MARK: - Lifecycle Methods
     
@@ -40,9 +42,11 @@ final class DefaulFullInfoView: UIViewController {
         
         infoView.addSubview(dateTextLabel)
         infoView.addSubview(dateLabel)
+        infoView.addSubview(ageLabel)
+        
         infoView.addSubview(descriptionTextView)
     }
-
+    
     
     private func setupConstraints() {
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -56,7 +60,7 @@ final class DefaulFullInfoView: UIViewController {
         infoView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         infoView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         infoView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-    
+        
         nameView.translatesAutoresizingMaskIntoConstraints = false
         nameView.bottomAnchor.constraint(equalTo: infoView.topAnchor, constant: 43).isActive = true
         nameView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30).isActive = true
@@ -83,13 +87,19 @@ final class DefaulFullInfoView: UIViewController {
         dateLabel.centerXAnchor.constraint(equalTo: infoView.centerXAnchor).isActive = true
         dateLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 0).isActive = true
         
+        
+        ageLabel.translatesAutoresizingMaskIntoConstraints = false
+        ageLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 10).isActive = true
+        ageLabel.centerXAnchor.constraint(equalTo: infoView.centerXAnchor).isActive = true
+        ageLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 0).isActive = true
+        
         descriptionTextView.translatesAutoresizingMaskIntoConstraints = false
-        descriptionTextView.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 15).isActive = true
+        descriptionTextView.topAnchor.constraint(equalTo: ageLabel.bottomAnchor, constant: 15).isActive = true
         descriptionTextView.leadingAnchor.constraint(equalTo: infoView.leadingAnchor, constant: 20).isActive = true
         descriptionTextView.trailingAnchor.constraint(equalTo: infoView.trailingAnchor, constant: -20).isActive = true
         descriptionTextView.heightAnchor.constraint(equalToConstant: 138).isActive = true
         
-
+        
     }
     
     private func setupUI() {
@@ -126,6 +136,11 @@ final class DefaulFullInfoView: UIViewController {
         dateLabel.textColor = .titleColors
         dateLabel.font = UIFont(name: "Manrope-Medium", size: 20)
         
+        
+        ageLabel.backgroundColor = .clear
+        ageLabel.textColor = .titleColors
+        ageLabel.font = UIFont(name: "Manrope-Medium", size: 20)
+        
         descriptionTextView.font = UIFont(name: "Manrope-Regular", size: 14)
         descriptionTextView.backgroundColor = .clear
         descriptionTextView.textColor = .titleColors
@@ -144,16 +159,26 @@ final class DefaulFullInfoView: UIViewController {
         birthdaysNameLabel.text = birthdays.nameBirthdays
         birthdaysSurNameLabel.text = birthdays.surnameBirthdays
         
-        if let releaseDate = birthdays.releaseDateBirthdays {
+        if let releaseDate = birthdays.dateBirthdays {
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "dd-MM-yyyy"
-            if let date = dateFormatter.date(from: releaseDate) {
-                let yearFormatter = DateFormatter()
-                yearFormatter.dateFormat = "dd.MM.yyyy"
-                dateLabel.text = yearFormatter.string(from: date)
+            dateFormatter.dateFormat = "dd.MM.yyyy"
+            if let birthDate = dateFormatter.date(from: releaseDate) {
+                let age = calculateAge(from: birthDate)
+                dateLabel.text = dateFormatter.string(from: birthDate)
+                ageLabel.text = " Исполнится: \(age)"
             }
         }
         
         descriptionTextView.text = birthdays.descriptionBirthdays
     }
+    
+    func calculateAge(from birthday: Date) -> Int {
+        let currentDate = Date()
+        let calendar = Calendar.current
+        let currentYear = calendar.component(.year, from: currentDate)
+        let birthYear = calendar.component(.year, from: birthday)
+        let age = currentYear - birthYear
+        return age
+    }
+
 }

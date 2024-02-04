@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		982481512B6CF147008722DD /* ReleaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982481502B6CF147008722DD /* ReleaseView.swift */; };
-		982481532B6CF152008722DD /* ReleaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982481522B6CF152008722DD /* ReleaseViewModel.swift */; };
+		982481512B6CF147008722DD /* dateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982481502B6CF147008722DD /* dateView.swift */; };
+		982481532B6CF152008722DD /* dateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982481522B6CF152008722DD /* dateViewModel.swift */; };
 		988157F32B6CD69200BA67B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988157F22B6CD69200BA67B2 /* AppDelegate.swift */; };
 		988157F52B6CD69200BA67B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988157F42B6CD69200BA67B2 /* SceneDelegate.swift */; };
 		988157FA2B6CD69200BA67B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 988157F82B6CD69200BA67B2 /* Main.storyboard */; };
@@ -32,8 +32,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		982481502B6CF147008722DD /* ReleaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseView.swift; sourceTree = "<group>"; };
-		982481522B6CF152008722DD /* ReleaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseViewModel.swift; sourceTree = "<group>"; };
+		982481502B6CF147008722DD /* dateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dateView.swift; sourceTree = "<group>"; };
+		982481522B6CF152008722DD /* dateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dateViewModel.swift; sourceTree = "<group>"; };
 		988157EF2B6CD69200BA67B2 /* Birthdays Reminder & Calendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Birthdays Reminder & Calendar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		988157F22B6CD69200BA67B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		988157F42B6CD69200BA67B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,8 +72,8 @@
 		9824814F2B6CF13A008722DD /* pages */ = {
 			isa = PBXGroup;
 			children = (
-				982481502B6CF147008722DD /* ReleaseView.swift */,
-				982481522B6CF152008722DD /* ReleaseViewModel.swift */,
+				982481502B6CF147008722DD /* dateView.swift */,
+				982481522B6CF152008722DD /* dateViewModel.swift */,
 			);
 			path = pages;
 			sourceTree = "<group>";
@@ -245,8 +245,8 @@
 				9881582F2B6CE03000BA67B2 /* AddBirthdaysViewModel.swift in Sources */,
 				988157F32B6CD69200BA67B2 /* AppDelegate.swift in Sources */,
 				9881582D2B6CE02500BA67B2 /* AddBirthdaysView.swift in Sources */,
-				982481512B6CF147008722DD /* ReleaseView.swift in Sources */,
-				982481532B6CF152008722DD /* ReleaseViewModel.swift in Sources */,
+				982481512B6CF147008722DD /* dateView.swift in Sources */,
+				982481532B6CF152008722DD /* dateViewModel.swift in Sources */,
 				9881580D2B6CDCF100BA67B2 /* CoreDataManager.swift in Sources */,
 				988158262B6CDF4500BA67B2 /* MainViewCell.swift in Sources */,
 				9881EAB82B6D05F100340A8B /* Birthdays_Reminder_Calendar.xcdatamodeld in Sources */,

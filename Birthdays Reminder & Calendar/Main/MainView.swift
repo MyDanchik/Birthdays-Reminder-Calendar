@@ -1,4 +1,5 @@
 import UIKit
+import UserNotifications
 
 final class DefaultMainView: UIViewController {
     
@@ -19,11 +20,13 @@ final class DefaultMainView: UIViewController {
         setupUI()
         setupTableView()
         setupBindings()
+        notification()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.loadBirthdays()
+        scheduleBirthdayNotifications()
     }
     
     // MARK: - Setup Methods
@@ -66,6 +69,65 @@ final class DefaultMainView: UIViewController {
     private func transitionToAddBirthdaysView() {
         viewModel.transitionToAddNewBirthdays()
     }
+    
+    private func notification() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+            if granted {
+                print("Разрешение на отправку уведомлений получено")
+                self.scheduleBirthdayNotifications()
+            } else {
+                print("Ошибка при запросе разрешения на отправку уведомлений: \(error?.localizedDescription ?? "")")
+            }
+        }
+    }
+    
+    // Метод для настройки уведомлений
+    private func scheduleBirthdayNotifications() {
+        let center = UNUserNotificationCenter.current()
+        center.getNotificationSettings { settings in
+            guard settings.authorizationStatus == .authorized else {
+                print("Уведомления не разрешены")
+                return
+            }
+            
+            for birthday in self.birthdaysList {
+                guard let birthdayDateString = birthday.releaseDateBirthdays,
+                      let birthdayDate = self.dateFormatter.date(from: birthdayDateString) else {
+                    continue
+                }
+                self.sendBirthdayNotification(date: birthdayDate, birthday: birthday)
+            }
+        }
+    }
+    
+    // Метод для отправки уведомления
+    private func sendBirthdayNotification(date: Date, birthday: Birthdays) {
+        
+        let content = UNMutableNotificationContent()
+        content.title = "День рождения"
+        content.body = "Сегодня у \(birthday.nameBirthdays ?? "") \(birthday.surnameBirthdays ?? "") день рождения!"
+        content.sound = UNNotificationSound.default
+        
+        var triggerDate = Calendar.current.dateComponents([.month, .day, .hour, .minute], from: date)
+        triggerDate.hour = 15
+        triggerDate.minute = 36
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
+        
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error = error {
+                print("Ошибка при добавлении уведомления: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    private let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.MM.yyyy"
+        return formatter
+    }()
 }
 
 // MARK: - UITableViewDelegate, UITableViewDataSource

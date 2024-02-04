@@ -1,14 +1,14 @@
 import UIKit
 
-// MARK: - DefaultReleaseView
+// MARK: - DefaultDateView
 
-final class DefaultReleaseView: UIViewController {
+final class DefaultDateView: UIViewController {
     
     // MARK: Properties
     
-    var viewModel: ReleaseViewModel!
+    var viewModel: dateViewModel!
     
-    private let releaseDateLabel = UILabel()
+    private let dateLabel = UILabel()
     private let datePicker = UIDatePicker()
     private var datePickerTextField = UITextField()
     private let saveButton = UIButton()
@@ -25,21 +25,21 @@ final class DefaultReleaseView: UIViewController {
     // MARK: Setup
     
     private func setupSubviews() {
-        view.addSubview(releaseDateLabel)
+        view.addSubview(dateLabel)
         view.addSubview(datePicker)
         view.addSubview(saveButton)
     }
 
     
     private func setupConstraints() {
-        releaseDateLabel.translatesAutoresizingMaskIntoConstraints = false
-        releaseDateLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 124).isActive = true
-        releaseDateLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 88).isActive = true
-        releaseDateLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -87).isActive = true
-        releaseDateLabel.heightAnchor.constraint(equalToConstant: 26).isActive = true
+        dateLabel.translatesAutoresizingMaskIntoConstraints = false
+        dateLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 124).isActive = true
+        dateLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 88).isActive = true
+        dateLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -87).isActive = true
+        dateLabel.heightAnchor.constraint(equalToConstant: 26).isActive = true
 
         datePicker.translatesAutoresizingMaskIntoConstraints = false
-        datePicker.topAnchor.constraint(equalTo: releaseDateLabel.bottomAnchor, constant: 32).isActive = true
+        datePicker.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 32).isActive = true
         datePicker.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
         datePicker.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
         datePicker.heightAnchor.constraint(equalToConstant: 194).isActive = true
@@ -54,10 +54,10 @@ final class DefaultReleaseView: UIViewController {
     private func setupUI() {
         view.backgroundColor = .backgroundAddScreen
 
-        releaseDateLabel.text = "Release Date"
-        releaseDateLabel.textColor = .titleColors
-        releaseDateLabel.textAlignment = .center
-        releaseDateLabel.font = UIFont(name: "Manrope-Medium", size: 24)
+        dateLabel.text = "Release Date"
+        dateLabel.textColor = .titleColors
+        dateLabel.textAlignment = .center
+        dateLabel.font = UIFont(name: "Manrope-Medium", size: 24)
  
         datePickerTextField.inputView = datePicker
         datePicker.datePickerMode = .date
@@ -73,23 +73,23 @@ final class DefaultReleaseView: UIViewController {
     // MARK: Helper Methods
     
     private func configureBindings() {
-        viewModel.setReleaseClosure = { [weak self] release in
+        viewModel.setDateClosure = { [weak self] release in
             self?.datePickerTextField.text = release
         }
     }
 
-    private func getRelease() -> String? {
-        let release = datePicker.date
+    private func getDate() -> String? {
+        let date = datePicker.date
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-MM-yyyy"
-        return dateFormatter.string(from: release)
+        dateFormatter.dateFormat = "dd.MM.yyyy"
+        return dateFormatter.string(from: date)
     }
     
     // MARK: Actions
     
     @objc func tapOnSaveButton() {
-        if let release = getRelease() {
-            viewModel.setRelease(release: release)
+        if let date = getDate() {
+            viewModel.setDate(date: date)
             navigationController?.popViewController(animated: true)
         }
     }

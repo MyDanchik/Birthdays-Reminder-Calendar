@@ -231,7 +231,7 @@ final class DefaultAddBirthdaysView: UIViewController, UINavigationControllerDel
         viewModel.saveNewBirthdays(imageBirthdays: imageBirthdays,
                                nameBirthdays: nameBirthdays,
                                surnameBirthdays: surnameBirthdays,
-                               releaseDateBirthdays: releaseDateBirthdays,
+                               dateBirthdays: releaseDateBirthdays,
                                descriptionBirthdays: descriptionBirthdays)
     }
     
@@ -287,7 +287,7 @@ extension DefaultAddBirthdaysView: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[.originalImage] as? UIImage {
             setupImage(image: image)
-            viewModel.saveNewBirthdays(imageBirthdays: image.jpegData(compressionQuality: 1.0), nameBirthdays: nameTextField.text, surnameBirthdays: surnameTextField.text, releaseDateBirthdays: birthdaysDateLabel.text, descriptionBirthdays: descriptionTextView.text)
+            viewModel.saveNewBirthdays(imageBirthdays: image.jpegData(compressionQuality: 1.0), nameBirthdays: nameTextField.text, surnameBirthdays: surnameTextField.text, dateBirthdays: birthdaysDateLabel.text, descriptionBirthdays: descriptionTextView.text)
         }
         picker.dismiss(animated: true, completion: nil)
     }

@@ -14,9 +14,9 @@ protocol AddBirthdaysViewModel {
     
     func transitionRelease()
     
-    var transitionReleaseView: ((DefaultReleaseView) -> Void)? { get set }
+    var transitionReleaseView: ((DefaultDateView) -> Void)? { get set }
     
-    func saveNewBirthdays(imageBirthdays: Data?, nameBirthdays: String?, surnameBirthdays: String?, releaseDateBirthdays: String?, descriptionBirthdays: String?)
+    func saveNewBirthdays(imageBirthdays: Data?, nameBirthdays: String?, surnameBirthdays: String?, dateBirthdays: String?, descriptionBirthdays: String?)
     var saveNewBirthdaysClosure: ((UIAlertController) -> Void)? { get set }
 }
 
@@ -29,13 +29,13 @@ final class DefaultAddBirthdaysViewModel: AddBirthdaysViewModel {
     var setupUIImagePicker: ((UIImagePickerController) -> Void)?
     var setupPHPicker: ((PHPickerViewController) -> Void)?
     var setupAlert: ((UIAlertController) -> Void)?
-    var transitionReleaseView: ((DefaultReleaseView) -> Void)?
+    var transitionReleaseView: ((DefaultDateView) -> Void)?
     
     // MARK: - Transition Methods
     
     func transitionRelease() {
-        let releaseView = DefaultReleaseView()
-        let releaseViewModel = ReleaseViewModel()
+        let releaseView = DefaultDateView()
+        let releaseViewModel = dateViewModel()
         releaseView.viewModel = releaseViewModel
         transitionReleaseView?(releaseView)
     }
@@ -76,12 +76,12 @@ final class DefaultAddBirthdaysViewModel: AddBirthdaysViewModel {
     
     var saveNewBirthdaysClosure: ((UIAlertController) -> Void)?
     
-    func saveNewBirthdays(imageBirthdays: Data?, nameBirthdays: String?, surnameBirthdays: String?, releaseDateBirthdays: String?, descriptionBirthdays: String?) {
+    func saveNewBirthdays(imageBirthdays: Data?, nameBirthdays: String?, surnameBirthdays: String?, dateBirthdays: String?, descriptionBirthdays: String?) {
         
         guard let imageBirthdays = imageBirthdays, imageBirthdays.count > 0,
               let nameBirthdays = nameBirthdays, nameBirthdays != "-", nameBirthdays != "",
               let surnameBirthdays = surnameBirthdays, surnameBirthdays != "-",
-              let releaseDateBirthdays = releaseDateBirthdays, releaseDateBirthdays != "-",
+              let dateBirthdays = dateBirthdays, dateBirthdays != "-",
               let descriptionBirthdays = descriptionBirthdays, descriptionBirthdays != "enter a description", descriptionBirthdays != ""
         else {
             let alertEmpty = UIAlertController(title: "Заполните все поля", message: "", preferredStyle: .alert)
@@ -90,12 +90,12 @@ final class DefaultAddBirthdaysViewModel: AddBirthdaysViewModel {
             saveNewBirthdaysClosure?(alertEmpty)
             return
         }
-        let result = CoreDataManager.instance.saveBirthdays(imageBirthdays: imageBirthdays, nameBirthdays: nameBirthdays, surnameBirthdays: surnameBirthdays, releaseDateBirthdays: releaseDateBirthdays, descriptionBirthdays: descriptionBirthdays)
+        let result = CoreDataManager.instance.saveBirthdays(imageBirthdays: imageBirthdays, nameBirthdays: nameBirthdays, surnameBirthdays: surnameBirthdays, dateBirthdays: dateBirthdays, descriptionBirthdays: descriptionBirthdays)
         
         switch result {
         case .success:
             print("Saved")
-            let alertSuccess = UIAlertController(title: "Фильм добавлен", message: "", preferredStyle: .alert)
+            let alertSuccess = UIAlertController(title: "Напоминание добавлено", message: "", preferredStyle: .alert)
             alertSuccess.addAction(UIAlertAction(title: "Ok", style: .default, handler: { _ in
                 self.ToMainTransition?()
             }))
