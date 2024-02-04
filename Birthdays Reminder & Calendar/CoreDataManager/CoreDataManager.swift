@@ -13,7 +13,7 @@ final class CoreDataManager {
     static let instance = CoreDataManager()
     private init() {}
 
-    func saveBirthdays(imageBirthdays: Data, nameBirthdays: String, surnameBirthdays: String, dateBirthdays: String, descriptionBirthdays: String) -> Result<Void, CoreDataError> {
+    func saveBirthdays(imageBirthdays: Data, nameBirthdays: String, surnameBirthdays: String, dateBirthdays: String, ideasBirthdays: String) -> Result<Void, CoreDataError> {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return .failure(.error("AppDelegate not found"))
         }
@@ -28,7 +28,7 @@ final class CoreDataManager {
         birthdays.setValue(nameBirthdays, forKey: "nameBirthdays")
         birthdays.setValue(surnameBirthdays, forKey: "surnameBirthdays")
         birthdays.setValue(dateBirthdays, forKey: "dateBirthdays")
-        birthdays.setValue(descriptionBirthdays, forKey: "descriptionBirthdays")
+        birthdays.setValue(ideasBirthdays, forKey: "ideasBirthdays")
 
         do {
             try managedContext.save()

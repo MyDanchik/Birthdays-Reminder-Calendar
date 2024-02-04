@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19D988392B6FD4ED0035093A /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 19D988382B6FD4ED0035093A /* Localizable.xcstrings */; };
 		982481512B6CF147008722DD /* dateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982481502B6CF147008722DD /* dateView.swift */; };
 		982481532B6CF152008722DD /* dateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982481522B6CF152008722DD /* dateViewModel.swift */; };
 		988157F32B6CD69200BA67B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988157F22B6CD69200BA67B2 /* AppDelegate.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		19D988382B6FD4ED0035093A /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		982481502B6CF147008722DD /* dateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dateView.swift; sourceTree = "<group>"; };
 		982481522B6CF152008722DD /* dateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dateViewModel.swift; sourceTree = "<group>"; };
 		988157EF2B6CD69200BA67B2 /* Birthdays Reminder & Calendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Birthdays Reminder & Calendar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,6 +106,7 @@
 				988157FE2B6CD69400BA67B2 /* Assets.xcassets */,
 				988158032B6CD69500BA67B2 /* Info.plist */,
 				988158112B6CDDB900BA67B2 /* Fonts */,
+				19D988382B6FD4ED0035093A /* Localizable.xcstrings */,
 			);
 			path = "Birthdays Reminder & Calendar";
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 988157E62B6CD69200BA67B2;
 			productRefGroup = 988157F02B6CD69200BA67B2 /* Products */;
@@ -226,6 +230,7 @@
 				9881581B2B6CDEE500BA67B2 /* Manrope-Regular.ttf in Resources */,
 				988158022B6CD69400BA67B2 /* LaunchScreen.storyboard in Resources */,
 				9881581E2B6CDEE500BA67B2 /* Manrope-SemiBold.ttf in Resources */,
+				19D988392B6FD4ED0035093A /* Localizable.xcstrings in Resources */,
 				988157FF2B6CD69400BA67B2 /* Assets.xcassets in Resources */,
 				988157FA2B6CD69200BA67B2 /* Main.storyboard in Resources */,
 				9881581D2B6CDEE500BA67B2 /* Manrope-Medium.ttf in Resources */,
@@ -407,11 +412,13 @@
 				DEVELOPMENT_TEAM = BYHNB7QH96;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Birthdays Reminder & Calendar/Info.plist";
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -435,11 +442,13 @@
 				DEVELOPMENT_TEAM = BYHNB7QH96;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Birthdays Reminder & Calendar/Info.plist";
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

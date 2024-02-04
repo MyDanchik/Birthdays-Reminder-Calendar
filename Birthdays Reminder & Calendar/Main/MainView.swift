@@ -33,7 +33,7 @@ final class DefaultMainView: UIViewController {
     
     private func setupUI() {
         view.backgroundColor = .backgroundMainScreen
-        title = "Birthdays List"
+        title = NSLocalizedString("mainPage.titel", comment: "")
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.rightBarButtonItem = UIBarButtonItem(systemItem: .add, primaryAction: UIAction(handler: { [weak self] _ in
             self?.transitionToAddBirthdaysView()
@@ -73,11 +73,8 @@ final class DefaultMainView: UIViewController {
     private func notification() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
             if granted {
-                print("Разрешение на отправку уведомлений получено")
                 self.scheduleBirthdayNotifications()
-            } else {
-                print("Ошибка при запросе разрешения на отправку уведомлений: \(error?.localizedDescription ?? "")")
-            }
+            } else { }
         }
     }
     
@@ -86,7 +83,6 @@ final class DefaultMainView: UIViewController {
         let center = UNUserNotificationCenter.current()
         center.getNotificationSettings { settings in
             guard settings.authorizationStatus == .authorized else {
-                print("Уведомления не разрешены")
                 return
             }
             
@@ -104,22 +100,20 @@ final class DefaultMainView: UIViewController {
     private func sendBirthdayNotification(date: Date, birthday: Birthdays) {
         
         let content = UNMutableNotificationContent()
-        content.title = "День рождения"
-        content.body = "Сегодня у \(birthday.nameBirthdays ?? "") \(birthday.surnameBirthdays ?? "") день рождения!"
+        content.title = NSLocalizedString("mainPage.notification.title", comment: "")
+        content.body = "\(birthday.nameBirthdays ?? "")\(birthday.surnameBirthdays ?? "")"
         content.sound = UNNotificationSound.default
         
         var triggerDate = Calendar.current.dateComponents([.month, .day, .hour, .minute], from: date)
-        triggerDate.hour = 15
-        triggerDate.minute = 36
+        triggerDate.hour = 19
+        triggerDate.minute = 09
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
         
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
         
         UNUserNotificationCenter.current().add(request) { error in
-            if let error = error {
-                print("Ошибка при добавлении уведомления: \(error.localizedDescription)")
-            }
+            if let error = error { }
         }
     }
     
@@ -150,9 +144,9 @@ extension DefaultMainView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let birthdays = birthdaysList[indexPath.row]
-            let alertDelete = UIAlertController(title: "Удалить напоминание?", message: "", preferredStyle: .alert)
-            alertDelete.addAction(UIAlertAction(title: "Нет", style: .default, handler: nil))
-            alertDelete.addAction(UIAlertAction(title: "Да", style: .destructive, handler: { _ in
+            let alertDelete = UIAlertController(title: NSLocalizedString("mainPage.alertDelete.message", comment: ""), message: "", preferredStyle: .alert)
+            alertDelete.addAction(UIAlertAction(title: NSLocalizedString("mainPage.alertDelete.no", comment: ""), style: .default, handler: nil))
+            alertDelete.addAction(UIAlertAction(title: NSLocalizedString("mainPage.alertDelete.yes", comment: ""), style: .destructive, handler: { _ in
                 _ = CoreDataManager.instance.deleteBirthdays(birthdays)
                 self.viewModel.loadBirthdays()
             }))

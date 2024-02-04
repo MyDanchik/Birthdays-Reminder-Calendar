@@ -35,7 +35,7 @@ final class MainViewCell: UITableViewCell {
         infoView.addSubview(surnameLabel)
         infoView.addSubview(birthdaysLabel)
     }
-
+    
     
     private func setupConstraints() {
         containerView.translatesAutoresizingMaskIntoConstraints = false
@@ -66,7 +66,6 @@ final class MainViewCell: UITableViewCell {
         surnameLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 0).isActive = true
         surnameLabel.leadingAnchor.constraint(equalTo: infoView.leadingAnchor, constant: 15).isActive = true
         surnameLabel.trailingAnchor.constraint(equalTo: infoView.trailingAnchor, constant: -15).isActive = true
-        
         
         birthdaysLabel.translatesAutoresizingMaskIntoConstraints = false
         birthdaysLabel.topAnchor.constraint(equalTo: surnameLabel.bottomAnchor, constant: 0).isActive = true
@@ -99,7 +98,6 @@ final class MainViewCell: UITableViewCell {
         birthdaysLabel.font = UIFont(name: "Manrope-Bold", size: 18)
         birthdaysLabel.textAlignment = .right
         birthdaysLabel.textColor = .titleColors
-
         
         birthdaysImage.clipsToBounds = true
         birthdaysImage.layer.cornerRadius = 8
@@ -117,17 +115,17 @@ final class MainViewCell: UITableViewCell {
         }
         nameLabel.text = birthdays.nameBirthdays
         surnameLabel.text = birthdays.surnameBirthdays
-
+        
         if let releaseDate = birthdays.dateBirthdays {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "dd.MM.yyyy"
             if let birthDate = dateFormatter.date(from: releaseDate) {
                 let age = calculateAge(from: birthDate)
-                birthdaysLabel.text = "Возраст: \(age)"
+                birthdaysLabel.text = (NSLocalizedString("mainPage.birthdaysLabel", comment: "") + ": \(age)")
             }
         }
     }
-
+    
     func calculateAge(from birthday: Date) -> Int {
         let currentDate = Date()
         let calendar = Calendar.current

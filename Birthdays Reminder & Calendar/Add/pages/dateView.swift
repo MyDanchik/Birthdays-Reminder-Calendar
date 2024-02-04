@@ -30,7 +30,6 @@ final class DefaultDateView: UIViewController {
         view.addSubview(saveButton)
     }
 
-    
     private func setupConstraints() {
         dateLabel.translatesAutoresizingMaskIntoConstraints = false
         dateLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 124).isActive = true
@@ -46,15 +45,15 @@ final class DefaultDateView: UIViewController {
 
         saveButton.translatesAutoresizingMaskIntoConstraints = false
         saveButton.topAnchor.constraint(equalTo: datePicker.bottomAnchor, constant: 32).isActive = true
-        saveButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 148).isActive = true
-        saveButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -148).isActive = true
+        saveButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 140).isActive = true
+        saveButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -140).isActive = true
         saveButton.heightAnchor.constraint(equalToConstant: 27).isActive = true
     }
     
     private func setupUI() {
         view.backgroundColor = .backgroundAddScreen
 
-        dateLabel.text = "Birthday Date"
+        dateLabel.text = NSLocalizedString("datePage.dateLabel", comment: "")
         dateLabel.textColor = .titleColors
         dateLabel.textAlignment = .center
         dateLabel.font = UIFont(name: "Manrope-Medium", size: 24)
@@ -64,7 +63,7 @@ final class DefaultDateView: UIViewController {
         datePicker.maximumDate = Date()
         datePicker.preferredDatePickerStyle = .wheels
 
-        saveButton.setTitle("Save", for: .normal)
+        saveButton.setTitle(NSLocalizedString("datePage.saveButton", comment: ""), for: .normal)
         saveButton.setTitleColor(.systemBlue, for: .normal)
         saveButton.addTarget(self, action: #selector(tapOnSaveButton), for: .touchUpInside)
         saveButton.titleLabel?.font = UIFont(name: "Manrope-Medium", size: 18)

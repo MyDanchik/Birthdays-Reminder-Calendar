@@ -13,13 +13,10 @@ final class DefaulFullInfoView: UIViewController {
     
     private let dateTextLabel = UILabel()
     private let dateLabel = UILabel()
-    private let descriptionTextView = UITextView()
-    
+    private let ideasTextView = UITextView()
     
     private let ageTextLabel = UILabel()
     private let ageLabel = UILabel()
-    
-    
     
     // MARK: - Lifecycle Methods
     
@@ -37,19 +34,15 @@ final class DefaulFullInfoView: UIViewController {
         view.addSubview(infoView)
         view.addSubview(nameView)
         
-        
         nameView.addSubview(birthdaysNameLabel)
         nameView.addSubview(birthdaysSurNameLabel)
-        
         
         infoView.addSubview(dateTextLabel)
         infoView.addSubview(dateLabel)
         infoView.addSubview(ageTextLabel)
         infoView.addSubview(ageLabel)
-        
-        infoView.addSubview(descriptionTextView)
+        infoView.addSubview(ideasTextView)
     }
-    
     
     private func setupConstraints() {
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -90,30 +83,26 @@ final class DefaulFullInfoView: UIViewController {
         dateLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         dateLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 0).isActive = true
         
-        
-        
         ageTextLabel.translatesAutoresizingMaskIntoConstraints = false
         ageTextLabel.topAnchor.constraint(equalTo: dateTextLabel.bottomAnchor, constant: 10).isActive = true
         ageTextLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         ageTextLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 0).isActive = true
-        
         
         ageLabel.translatesAutoresizingMaskIntoConstraints = false
         ageLabel.topAnchor.constraint(equalTo: dateTextLabel.bottomAnchor, constant: 10).isActive = true
         ageLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         ageLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 0).isActive = true
         
-        descriptionTextView.translatesAutoresizingMaskIntoConstraints = false
-        descriptionTextView.topAnchor.constraint(equalTo: ageLabel.bottomAnchor, constant: 15).isActive = true
-        descriptionTextView.leadingAnchor.constraint(equalTo: infoView.leadingAnchor, constant: 20).isActive = true
-        descriptionTextView.trailingAnchor.constraint(equalTo: infoView.trailingAnchor, constant: -20).isActive = true
-        descriptionTextView.heightAnchor.constraint(equalToConstant: 138).isActive = true
-        
-        
+        ideasTextView.translatesAutoresizingMaskIntoConstraints = false
+        ideasTextView.topAnchor.constraint(equalTo: ageLabel.bottomAnchor, constant: 15).isActive = true
+        ideasTextView.leadingAnchor.constraint(equalTo: infoView.leadingAnchor, constant: 20).isActive = true
+        ideasTextView.trailingAnchor.constraint(equalTo: infoView.trailingAnchor, constant: -20).isActive = true
+        ideasTextView.heightAnchor.constraint(equalToConstant: 138).isActive = true
     }
     
     private func setupUI() {
         view.backgroundColor = .backgroundAddScreen
+        
         imageView.backgroundColor = .black
         imageView.contentMode = .scaleAspectFill
         
@@ -138,7 +127,7 @@ final class DefaulFullInfoView: UIViewController {
         birthdaysSurNameLabel.textColor = .titleColors
         
         dateTextLabel.backgroundColor = .clear
-        dateTextLabel.text = "День рождение:"
+        dateTextLabel.text = NSLocalizedString("fullInfoPage.dateTextLabel", comment: "") + ":"
         dateTextLabel.font = UIFont(name: "Manrope-Medium", size: 21)
         dateTextLabel.textColor = .titleColors
         
@@ -146,9 +135,8 @@ final class DefaulFullInfoView: UIViewController {
         dateLabel.textColor = .titleColors
         dateLabel.font = UIFont(name: "Manrope-Medium", size: 21)
         
-        
         ageTextLabel.backgroundColor = .clear
-        ageTextLabel.text = "Исполнится:"
+        ageTextLabel.text = NSLocalizedString("fullInfoPage.ageTextLabel", comment: "") + ":"
         ageTextLabel.font = UIFont(name: "Manrope-Medium", size: 21)
         ageTextLabel.textColor = .titleColors
         
@@ -156,13 +144,13 @@ final class DefaulFullInfoView: UIViewController {
         ageLabel.textColor = .titleColors
         ageLabel.font = UIFont(name: "Manrope-Medium", size: 21)
         
-        descriptionTextView.font = UIFont(name: "Manrope-Regular", size: 18)
-        descriptionTextView.backgroundColor = .backgroundCell
-        descriptionTextView.textColor = .titleColors
-        descriptionTextView.isEditable = false
-        descriptionTextView.layer.borderWidth = 1
-        descriptionTextView.layer.borderColor = UIColor.borderColors.cgColor
-        descriptionTextView.layer.cornerRadius = 10
+        ideasTextView.font = UIFont(name: "Manrope-Regular", size: 18)
+        ideasTextView.backgroundColor = .backgroundCell
+        ideasTextView.textColor = .titleColors
+        ideasTextView.isEditable = false
+        ideasTextView.layer.borderWidth = 1
+        ideasTextView.layer.borderColor = UIColor.borderColors.cgColor
+        ideasTextView.layer.cornerRadius = 10
     }
     
     // MARK: - Public Methods
@@ -183,11 +171,11 @@ final class DefaulFullInfoView: UIViewController {
             if let birthDate = dateFormatter.date(from: releaseDate) {
                 let age = calculateAge(from: birthDate)
                 dateLabel.text = dateFormatter.string(from: birthDate)
-                ageLabel.text = "\(age) лет"
+                ageLabel.text = "\(age) " + NSLocalizedString("fullInfoPage.ageLabel", comment: "")
             }
         }
         
-        descriptionTextView.text = birthdays.descriptionBirthdays
+        ideasTextView.text = birthdays.ideasBirthdays
     }
     
     func calculateAge(from birthday: Date) -> Int {
@@ -198,5 +186,5 @@ final class DefaulFullInfoView: UIViewController {
         let age = currentYear - birthYear
         return age
     }
-
+    
 }
