@@ -7,25 +7,57 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19D988392B6FD4ED0035093A /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 19D988382B6FD4ED0035093A /* Localizable.xcstrings */; };
+		982481512B6CF147008722DD /* dateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982481502B6CF147008722DD /* dateView.swift */; };
+		982481532B6CF152008722DD /* dateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982481522B6CF152008722DD /* dateViewModel.swift */; };
 		988157F32B6CD69200BA67B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988157F22B6CD69200BA67B2 /* AppDelegate.swift */; };
 		988157F52B6CD69200BA67B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988157F42B6CD69200BA67B2 /* SceneDelegate.swift */; };
-		988157F72B6CD69200BA67B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988157F62B6CD69200BA67B2 /* ViewController.swift */; };
 		988157FA2B6CD69200BA67B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 988157F82B6CD69200BA67B2 /* Main.storyboard */; };
-		988157FD2B6CD69200BA67B2 /* Birthdays_Reminder___Calendar.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 988157FB2B6CD69200BA67B2 /* Birthdays_Reminder___Calendar.xcdatamodeld */; };
 		988157FF2B6CD69400BA67B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 988157FE2B6CD69400BA67B2 /* Assets.xcassets */; };
 		988158022B6CD69400BA67B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 988158002B6CD69400BA67B2 /* LaunchScreen.storyboard */; };
+		9881580D2B6CDCF100BA67B2 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9881580C2B6CDCF100BA67B2 /* CoreDataManager.swift */; };
+		988158192B6CDEE500BA67B2 /* Manrope-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 988158122B6CDEE500BA67B2 /* Manrope-Light.ttf */; };
+		9881581A2B6CDEE500BA67B2 /* Manrope-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 988158132B6CDEE500BA67B2 /* Manrope-Bold.ttf */; };
+		9881581B2B6CDEE500BA67B2 /* Manrope-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 988158142B6CDEE500BA67B2 /* Manrope-Regular.ttf */; };
+		9881581C2B6CDEE500BA67B2 /* Manrope-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 988158152B6CDEE500BA67B2 /* Manrope-ExtraBold.ttf */; };
+		9881581D2B6CDEE500BA67B2 /* Manrope-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 988158162B6CDEE500BA67B2 /* Manrope-Medium.ttf */; };
+		9881581E2B6CDEE500BA67B2 /* Manrope-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 988158172B6CDEE500BA67B2 /* Manrope-SemiBold.ttf */; };
+		9881581F2B6CDEE500BA67B2 /* Manrope-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 988158182B6CDEE500BA67B2 /* Manrope-ExtraLight.ttf */; };
+		988158242B6CDF3900BA67B2 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988158232B6CDF3900BA67B2 /* MainView.swift */; };
+		988158262B6CDF4500BA67B2 /* MainViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988158252B6CDF4500BA67B2 /* MainViewCell.swift */; };
+		988158282B6CDF4F00BA67B2 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988158272B6CDF4F00BA67B2 /* MainViewModel.swift */; };
+		9881582A2B6CDFCE00BA67B2 /* FullInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988158292B6CDFCE00BA67B2 /* FullInfoView.swift */; };
+		9881582D2B6CE02500BA67B2 /* AddBirthdaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9881582C2B6CE02500BA67B2 /* AddBirthdaysView.swift */; };
+		9881582F2B6CE03000BA67B2 /* AddBirthdaysViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9881582E2B6CE03000BA67B2 /* AddBirthdaysViewModel.swift */; };
+		9881EAB82B6D05F100340A8B /* Birthdays_Reminder_Calendar.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9881EAB62B6D05F100340A8B /* Birthdays_Reminder_Calendar.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		19D988382B6FD4ED0035093A /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		982481502B6CF147008722DD /* dateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dateView.swift; sourceTree = "<group>"; };
+		982481522B6CF152008722DD /* dateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dateViewModel.swift; sourceTree = "<group>"; };
 		988157EF2B6CD69200BA67B2 /* Birthdays Reminder & Calendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Birthdays Reminder & Calendar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		988157F22B6CD69200BA67B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		988157F42B6CD69200BA67B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		988157F62B6CD69200BA67B2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		988157F92B6CD69200BA67B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		988157FC2B6CD69200BA67B2 /* Birthdays_Reminder___Calendar.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Birthdays_Reminder___Calendar.xcdatamodel"; sourceTree = "<group>"; };
 		988157FE2B6CD69400BA67B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		988158012B6CD69400BA67B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		988158032B6CD69500BA67B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9881580C2B6CDCF100BA67B2 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		988158122B6CDEE500BA67B2 /* Manrope-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-Light.ttf"; sourceTree = "<group>"; };
+		988158132B6CDEE500BA67B2 /* Manrope-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-Bold.ttf"; sourceTree = "<group>"; };
+		988158142B6CDEE500BA67B2 /* Manrope-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-Regular.ttf"; sourceTree = "<group>"; };
+		988158152B6CDEE500BA67B2 /* Manrope-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-ExtraBold.ttf"; sourceTree = "<group>"; };
+		988158162B6CDEE500BA67B2 /* Manrope-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-Medium.ttf"; sourceTree = "<group>"; };
+		988158172B6CDEE500BA67B2 /* Manrope-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-SemiBold.ttf"; sourceTree = "<group>"; };
+		988158182B6CDEE500BA67B2 /* Manrope-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-ExtraLight.ttf"; sourceTree = "<group>"; };
+		988158232B6CDF3900BA67B2 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		988158252B6CDF4500BA67B2 /* MainViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCell.swift; sourceTree = "<group>"; };
+		988158272B6CDF4F00BA67B2 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		988158292B6CDFCE00BA67B2 /* FullInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullInfoView.swift; sourceTree = "<group>"; };
+		9881582C2B6CE02500BA67B2 /* AddBirthdaysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBirthdaysView.swift; sourceTree = "<group>"; };
+		9881582E2B6CE03000BA67B2 /* AddBirthdaysViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBirthdaysViewModel.swift; sourceTree = "<group>"; };
+		9881EAB72B6D05F100340A8B /* Birthdays_Reminder_Calendar.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Birthdays_Reminder_Calendar.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +71,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9824814F2B6CF13A008722DD /* pages */ = {
+			isa = PBXGroup;
+			children = (
+				982481502B6CF147008722DD /* dateView.swift */,
+				982481522B6CF152008722DD /* dateViewModel.swift */,
+			);
+			path = pages;
+			sourceTree = "<group>";
+		};
 		988157E62B6CD69200BA67B2 = {
 			isa = PBXGroup;
 			children = (
@@ -58,16 +99,71 @@
 		988157F12B6CD69200BA67B2 /* Birthdays Reminder & Calendar */ = {
 			isa = PBXGroup;
 			children = (
-				988157F22B6CD69200BA67B2 /* AppDelegate.swift */,
-				988157F42B6CD69200BA67B2 /* SceneDelegate.swift */,
-				988157F62B6CD69200BA67B2 /* ViewController.swift */,
-				988157F82B6CD69200BA67B2 /* Main.storyboard */,
+				988158222B6CDF2C00BA67B2 /* Main */,
+				9881582B2B6CE01400BA67B2 /* Add */,
+				988158212B6CDF1100BA67B2 /* CoreDataManager */,
+				988158202B6CDEFB00BA67B2 /* Applications */,
 				988157FE2B6CD69400BA67B2 /* Assets.xcassets */,
-				988158002B6CD69400BA67B2 /* LaunchScreen.storyboard */,
 				988158032B6CD69500BA67B2 /* Info.plist */,
-				988157FB2B6CD69200BA67B2 /* Birthdays_Reminder___Calendar.xcdatamodeld */,
+				988158112B6CDDB900BA67B2 /* Fonts */,
+				19D988382B6FD4ED0035093A /* Localizable.xcstrings */,
 			);
 			path = "Birthdays Reminder & Calendar";
+			sourceTree = "<group>";
+		};
+		988158112B6CDDB900BA67B2 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				988158132B6CDEE500BA67B2 /* Manrope-Bold.ttf */,
+				988158152B6CDEE500BA67B2 /* Manrope-ExtraBold.ttf */,
+				988158182B6CDEE500BA67B2 /* Manrope-ExtraLight.ttf */,
+				988158122B6CDEE500BA67B2 /* Manrope-Light.ttf */,
+				988158162B6CDEE500BA67B2 /* Manrope-Medium.ttf */,
+				988158142B6CDEE500BA67B2 /* Manrope-Regular.ttf */,
+				988158172B6CDEE500BA67B2 /* Manrope-SemiBold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		988158202B6CDEFB00BA67B2 /* Applications */ = {
+			isa = PBXGroup;
+			children = (
+				988157F22B6CD69200BA67B2 /* AppDelegate.swift */,
+				988157F42B6CD69200BA67B2 /* SceneDelegate.swift */,
+				988157F82B6CD69200BA67B2 /* Main.storyboard */,
+				988158002B6CD69400BA67B2 /* LaunchScreen.storyboard */,
+			);
+			path = Applications;
+			sourceTree = "<group>";
+		};
+		988158212B6CDF1100BA67B2 /* CoreDataManager */ = {
+			isa = PBXGroup;
+			children = (
+				9881580C2B6CDCF100BA67B2 /* CoreDataManager.swift */,
+				9881EAB62B6D05F100340A8B /* Birthdays_Reminder_Calendar.xcdatamodeld */,
+			);
+			path = CoreDataManager;
+			sourceTree = "<group>";
+		};
+		988158222B6CDF2C00BA67B2 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				988158232B6CDF3900BA67B2 /* MainView.swift */,
+				988158252B6CDF4500BA67B2 /* MainViewCell.swift */,
+				988158272B6CDF4F00BA67B2 /* MainViewModel.swift */,
+				988158292B6CDFCE00BA67B2 /* FullInfoView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		9881582B2B6CE01400BA67B2 /* Add */ = {
+			isa = PBXGroup;
+			children = (
+				9824814F2B6CF13A008722DD /* pages */,
+				9881582C2B6CE02500BA67B2 /* AddBirthdaysView.swift */,
+				9881582E2B6CE03000BA67B2 /* AddBirthdaysViewModel.swift */,
+			);
+			path = Add;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -112,6 +208,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 988157E62B6CD69200BA67B2;
 			productRefGroup = 988157F02B6CD69200BA67B2 /* Products */;
@@ -128,9 +225,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				988158192B6CDEE500BA67B2 /* Manrope-Light.ttf in Resources */,
+				9881581A2B6CDEE500BA67B2 /* Manrope-Bold.ttf in Resources */,
+				9881581B2B6CDEE500BA67B2 /* Manrope-Regular.ttf in Resources */,
 				988158022B6CD69400BA67B2 /* LaunchScreen.storyboard in Resources */,
+				9881581E2B6CDEE500BA67B2 /* Manrope-SemiBold.ttf in Resources */,
+				19D988392B6FD4ED0035093A /* Localizable.xcstrings in Resources */,
 				988157FF2B6CD69400BA67B2 /* Assets.xcassets in Resources */,
 				988157FA2B6CD69200BA67B2 /* Main.storyboard in Resources */,
+				9881581D2B6CDEE500BA67B2 /* Manrope-Medium.ttf in Resources */,
+				9881581C2B6CDEE500BA67B2 /* Manrope-ExtraBold.ttf in Resources */,
+				9881581F2B6CDEE500BA67B2 /* Manrope-ExtraLight.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,10 +246,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				988157FD2B6CD69200BA67B2 /* Birthdays_Reminder___Calendar.xcdatamodeld in Sources */,
-				988157F72B6CD69200BA67B2 /* ViewController.swift in Sources */,
+				988158242B6CDF3900BA67B2 /* MainView.swift in Sources */,
+				9881582F2B6CE03000BA67B2 /* AddBirthdaysViewModel.swift in Sources */,
 				988157F32B6CD69200BA67B2 /* AppDelegate.swift in Sources */,
+				9881582D2B6CE02500BA67B2 /* AddBirthdaysView.swift in Sources */,
+				982481512B6CF147008722DD /* dateView.swift in Sources */,
+				982481532B6CF152008722DD /* dateViewModel.swift in Sources */,
+				9881580D2B6CDCF100BA67B2 /* CoreDataManager.swift in Sources */,
+				988158262B6CDF4500BA67B2 /* MainViewCell.swift in Sources */,
+				9881EAB82B6D05F100340A8B /* Birthdays_Reminder_Calendar.xcdatamodeld in Sources */,
 				988157F52B6CD69200BA67B2 /* SceneDelegate.swift in Sources */,
+				988158282B6CDF4F00BA67B2 /* MainViewModel.swift in Sources */,
+				9881582A2B6CDFCE00BA67B2 /* FullInfoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,11 +412,13 @@
 				DEVELOPMENT_TEAM = BYHNB7QH96;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Birthdays Reminder & Calendar/Info.plist";
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -327,11 +442,13 @@
 				DEVELOPMENT_TEAM = BYHNB7QH96;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Birthdays Reminder & Calendar/Info.plist";
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -369,13 +486,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		988157FB2B6CD69200BA67B2 /* Birthdays_Reminder___Calendar.xcdatamodeld */ = {
+		9881EAB62B6D05F100340A8B /* Birthdays_Reminder_Calendar.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				988157FC2B6CD69200BA67B2 /* Birthdays_Reminder___Calendar.xcdatamodel */,
+				9881EAB72B6D05F100340A8B /* Birthdays_Reminder_Calendar.xcdatamodel */,
 			);
-			currentVersion = 988157FC2B6CD69200BA67B2 /* Birthdays_Reminder___Calendar.xcdatamodel */;
-			path = "Birthdays_Reminder___Calendar.xcdatamodeld";
+			currentVersion = 9881EAB72B6D05F100340A8B /* Birthdays_Reminder_Calendar.xcdatamodel */;
+			path = Birthdays_Reminder_Calendar.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
