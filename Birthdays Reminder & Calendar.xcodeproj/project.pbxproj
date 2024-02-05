@@ -30,6 +30,7 @@
 		9881582D2B6CE02500BA67B2 /* AddBirthdaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9881582C2B6CE02500BA67B2 /* AddBirthdaysView.swift */; };
 		9881582F2B6CE03000BA67B2 /* AddBirthdaysViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9881582E2B6CE03000BA67B2 /* AddBirthdaysViewModel.swift */; };
 		9881EAB82B6D05F100340A8B /* Birthdays_Reminder_Calendar.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9881EAB62B6D05F100340A8B /* Birthdays_Reminder_Calendar.xcdatamodeld */; };
+		98F6904E2B70DC230028A9AF /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F6904D2B70DC230028A9AF /* NotificationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,7 +46,7 @@
 		988158032B6CD69500BA67B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9881580C2B6CDCF100BA67B2 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		988158122B6CDEE500BA67B2 /* Manrope-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-Light.ttf"; sourceTree = "<group>"; };
-		988158132B6CDEE500BA67B2 /* Manrope-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-Bold.ttf"; sourceTree = "<group>"; };
+		988158132B6CDEE500BA67B2 /* Manrope-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Manrope-Bold.ttf"; sourceTree = "<group>"; };
 		988158142B6CDEE500BA67B2 /* Manrope-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-Regular.ttf"; sourceTree = "<group>"; };
 		988158152B6CDEE500BA67B2 /* Manrope-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-ExtraBold.ttf"; sourceTree = "<group>"; };
 		988158162B6CDEE500BA67B2 /* Manrope-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-Medium.ttf"; sourceTree = "<group>"; };
@@ -58,6 +59,7 @@
 		9881582C2B6CE02500BA67B2 /* AddBirthdaysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBirthdaysView.swift; sourceTree = "<group>"; };
 		9881582E2B6CE03000BA67B2 /* AddBirthdaysViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBirthdaysViewModel.swift; sourceTree = "<group>"; };
 		9881EAB72B6D05F100340A8B /* Birthdays_Reminder_Calendar.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Birthdays_Reminder_Calendar.xcdatamodel; sourceTree = "<group>"; };
+		98F6904D2B70DC230028A9AF /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 				988158252B6CDF4500BA67B2 /* MainViewCell.swift */,
 				988158272B6CDF4F00BA67B2 /* MainViewModel.swift */,
 				988158292B6CDFCE00BA67B2 /* FullInfoView.swift */,
+				98F6904D2B70DC230028A9AF /* NotificationManager.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				9881582D2B6CE02500BA67B2 /* AddBirthdaysView.swift in Sources */,
 				982481512B6CF147008722DD /* dateView.swift in Sources */,
 				982481532B6CF152008722DD /* dateViewModel.swift in Sources */,
+				98F6904E2B70DC230028A9AF /* NotificationManager.swift in Sources */,
 				9881580D2B6CDCF100BA67B2 /* CoreDataManager.swift in Sources */,
 				988158262B6CDF4500BA67B2 /* MainViewCell.swift in Sources */,
 				9881EAB82B6D05F100340A8B /* Birthdays_Reminder_Calendar.xcdatamodeld in Sources */,
