@@ -17,8 +17,8 @@ class NotificationManager {
         }
         
         var triggerDateComponents = calendar.dateComponents([.month, .day, .hour, .minute], from: triggerDate)
-        triggerDateComponents.hour = 13
-        triggerDateComponents.minute = 17
+        triggerDateComponents.hour = 9
+        triggerDateComponents.minute = 30
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDateComponents, repeats: false)
         
