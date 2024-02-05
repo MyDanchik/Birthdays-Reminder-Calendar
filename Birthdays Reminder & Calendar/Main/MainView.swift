@@ -20,13 +20,12 @@ final class DefaultMainView: UIViewController {
         setupUI()
         setupTableView()
         setupBindings()
-        notification()
+        requestAuthorization()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.loadBirthdays()
-        scheduleBirthdayNotifications()
     }
     
     // MARK: - Setup Methods
@@ -70,58 +69,15 @@ final class DefaultMainView: UIViewController {
         viewModel.transitionToAddNewBirthdays()
     }
     
-    private func notification() {
+    func requestAuthorization() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
             if granted {
-                self.scheduleBirthdayNotifications()
-            } else { }
-        }
-    }
-    
-    // Метод для настройки уведомлений
-    private func scheduleBirthdayNotifications() {
-        let center = UNUserNotificationCenter.current()
-        center.getNotificationSettings { settings in
-            guard settings.authorizationStatus == .authorized else {
-                return
-            }
-            
-            for birthday in self.birthdaysList {
-                guard let birthdayDateString = birthday.dateBirthdays,
-                      let birthdayDate = self.dateFormatter.date(from: birthdayDateString) else {
-                    continue
-                }
-                self.sendBirthdayNotification(date: birthdayDate, birthday: birthday)
+                print("Notification authorization granted")
+            } else {
+                print("Notification authorization denied")
             }
         }
     }
-    
-    // Метод для отправки уведомления
-    private func sendBirthdayNotification(date: Date, birthday: Birthdays) {
-        
-        let content = UNMutableNotificationContent()
-        content.title = NSLocalizedString("mainPage.notification.title", comment: "")
-        content.body = "\(birthday.nameBirthdays ?? "")\(birthday.surnameBirthdays ?? "")"
-        content.sound = UNNotificationSound.default
-        
-        var triggerDate = Calendar.current.dateComponents([.month, .day, .hour, .minute], from: date)
-        triggerDate.hour = 19
-        triggerDate.minute = 09
-        
-        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
-        
-        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-        
-        UNUserNotificationCenter.current().add(request) { error in
-            if let error = error { }
-        }
-    }
-    
-    private let dateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd.MM.yyyy"
-        return formatter
-    }()
 }
 
 // MARK: - UITableViewDelegate, UITableViewDataSource

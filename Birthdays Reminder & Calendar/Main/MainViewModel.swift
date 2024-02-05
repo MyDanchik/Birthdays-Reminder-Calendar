@@ -21,6 +21,7 @@ final class DefaultMainViewModel: MainViewModel {
         switch operationResult {
         case .success(let birthdays):
             setupBirthdays?(birthdays)
+            scheduleNotifications(for: birthdays)
         case .failure(let error):
             print("Failed to load BirthdaysList: \(error)")
         }
@@ -31,5 +32,12 @@ final class DefaultMainViewModel: MainViewModel {
         let addBirthdaysViewModel = DefaultAddBirthdaysViewModel()
         addBirthdaysView.viewModel = addBirthdaysViewModel
         transition?(addBirthdaysView)
+    }
+    
+    
+    func scheduleNotifications(for birthdays: [Birthdays]) {
+        for birthday in birthdays {
+            NotificationManager.shared.scheduleBirthdayNotification(for: birthday)
+        }
     }
 }

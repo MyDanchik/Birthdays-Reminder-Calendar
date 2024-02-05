@@ -79,7 +79,6 @@ final class DefaultAddBirthdaysView: UIViewController, UINavigationControllerDel
         dateStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         dateStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         dateStackView.heightAnchor.constraint(equalToConstant: 84).isActive = true
-        dateStackView.widthAnchor.constraint(equalToConstant: 125).isActive = true
         
         ideasTextView.translatesAutoresizingMaskIntoConstraints = false
         ideasTextView.topAnchor.constraint(equalTo: dateStackView.bottomAnchor, constant: 11).isActive = true
