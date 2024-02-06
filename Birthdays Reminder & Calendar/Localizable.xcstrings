@@ -109,13 +109,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Enter a gift ideas"
+            "value" : "Notes"
           }
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Введите идеи для подарков"
+            "state" : "needs_review",
+            "value" : "Заметки"
           }
         }
       }
@@ -211,13 +211,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Add new birthday"
+            "value" : "Add new"
           }
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "День рождения"
+            "state" : "needs_review",
+            "value" : "Добавить"
           }
         }
       }
