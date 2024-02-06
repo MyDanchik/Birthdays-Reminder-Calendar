@@ -370,7 +370,23 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Возраст"
+            "value" : "Осталось"
+          }
+        }
+      }
+    },
+    "mainPage.daysRemainingLabel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "day"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "дней"
           }
         }
       }
@@ -405,6 +421,38 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Дни рождения"
+          }
+        }
+      }
+    },
+    "mainPage.todayLabel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "today"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Сегодня"
+          }
+        }
+      }
+    },
+    "mainPage.tomorrowLabel" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "tomorrow"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Завтра"
           }
         }
       }

@@ -5,7 +5,7 @@ final class DefaultAddBirthdaysView: UIViewController, UINavigationControllerDel
     var viewModel: AddBirthdaysViewModel!
     
     // MARK: - UI Elements
-    
+    private let containerView = UIView()
     private let addImageView = UIImageView()
     private let addImageButton = UIButton()
     private let nameTextField = UITextField()
@@ -27,6 +27,7 @@ final class DefaultAddBirthdaysView: UIViewController, UINavigationControllerDel
         setupTap()
         setupTextViewDelegate()
         setupTextViewKeyboard()
+        requestAuthorization()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,10 +37,12 @@ final class DefaultAddBirthdaysView: UIViewController, UINavigationControllerDel
     // MARK: - Private Methods
     
     private func setupSubviews() {
+        view.addSubview(containerView)
         view.addSubview(addImageView)
         view.addSubview(addImageButton)
         view.addSubview(nameTextField)
         view.addSubview(surnameTextField)
+        
         
         view.addSubview(dateStackView)
         view.addSubview(ideasTextView)
@@ -50,6 +53,14 @@ final class DefaultAddBirthdaysView: UIViewController, UINavigationControllerDel
     }
     
     private func setupConstraints() {
+        
+        
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        containerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
+        containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        containerView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        containerView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        
         addImageView.translatesAutoresizingMaskIntoConstraints = false
         addImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
         addImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -63,7 +74,7 @@ final class DefaultAddBirthdaysView: UIViewController, UINavigationControllerDel
         addImageButton.widthAnchor.constraint(equalTo: addImageView.widthAnchor, multiplier: 1).isActive = true
         
         nameTextField.translatesAutoresizingMaskIntoConstraints = false
-        nameTextField.topAnchor.constraint(equalTo: addImageButton.bottomAnchor, constant: 30).isActive = true
+        nameTextField.topAnchor.constraint(equalTo: addImageView.bottomAnchor, constant: 30).isActive = true
         nameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         nameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         nameTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
@@ -92,7 +103,7 @@ final class DefaultAddBirthdaysView: UIViewController, UINavigationControllerDel
         let namePaddingView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: nameTextField.frame.height))
         let surnamePaddingView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: surnameTextField.frame.height))
         
-        view.backgroundColor = .backgroundAddScreen
+        view.backgroundColor = .backgroundMainScreen
         
         title = NSLocalizedString("addBirthdaysPage.title", comment: "")
         
@@ -102,11 +113,20 @@ final class DefaultAddBirthdaysView: UIViewController, UINavigationControllerDel
         }))
         navigationItem.backButtonTitle = ""
         
+        
+        containerView.backgroundColor = .backgroundMainScreen
+        containerView.layer.cornerRadius = 10
+        containerView.layer.shadowColor = UIColor.black.cgColor
+        containerView.layer.shadowOffset = CGSize(width: 0, height: 2)
+        containerView.layer.shadowRadius = 10
+        containerView.layer.shadowOpacity = 0.20
+        
+        
         addImageView.backgroundColor = .backgroundCell
         addImageView.layer.masksToBounds = true
         addImageView.layer.cornerRadius = 10
         addImageView.contentMode = .scaleAspectFill
-        
+
         addImageButton.backgroundColor = .clear
         addImageButton.setImage(UIImage(named: "addImageBirthdaysView"), for: .normal)
         addImageButton.addTarget(self, action: #selector(tapOnAlertButton), for: .touchUpInside)
@@ -115,21 +135,25 @@ final class DefaultAddBirthdaysView: UIViewController, UINavigationControllerDel
         nameTextField.backgroundColor = .backgroundCell
         nameTextField.font = UIFont(name: "Manrope-Regular", size: 18)
         nameTextField.textColor = .titleColors
-        nameTextField.layer.borderWidth = 1.0
         nameTextField.layer.cornerRadius = 10
         nameTextField.leftView = namePaddingView
         nameTextField.leftViewMode = .always
-        nameTextField.layer.borderColor = UIColor.borderColors.cgColor
+        nameTextField.layer.shadowColor = UIColor.black.cgColor
+        nameTextField.layer.shadowOffset = CGSize(width: 0, height: 2)
+        nameTextField.layer.shadowRadius = 10
+        nameTextField.layer.shadowOpacity = 0.20
         
         surnameTextField.placeholder = NSLocalizedString("addBirthdaysPage.surnameTextField", comment: "")
         surnameTextField.backgroundColor = .backgroundCell
         surnameTextField.font = UIFont(name: "Manrope-Regular", size: 18)
         surnameTextField.textColor = .titleColors
-        surnameTextField.layer.borderWidth = 1.0
         surnameTextField.layer.cornerRadius = 10
         surnameTextField.leftView = surnamePaddingView
         surnameTextField.leftViewMode = .always
-        surnameTextField.layer.borderColor = UIColor.borderColors.cgColor
+        surnameTextField.layer.shadowColor = UIColor.black.cgColor
+        surnameTextField.layer.shadowOffset = CGSize(width: 0, height: 2)
+        surnameTextField.layer.shadowRadius = 10
+        surnameTextField.layer.shadowOpacity = 0.20
         
         dateStackView.axis = .vertical
         dateStackView.alignment = .center
@@ -151,9 +175,12 @@ final class DefaultAddBirthdaysView: UIViewController, UINavigationControllerDel
         ideasTextView.backgroundColor = .backgroundCell
         ideasTextView.font = UIFont(name: "Manrope-Regular", size: 18)
         ideasTextView.textColor = .titleColors
-        ideasTextView.layer.borderWidth = 1.0
         ideasTextView.layer.cornerRadius = 10
-        ideasTextView.layer.borderColor = UIColor.borderColors.cgColor
+        ideasTextView.layer.masksToBounds = false
+        ideasTextView.layer.shadowColor = UIColor.black.cgColor
+        ideasTextView.layer.shadowOffset = CGSize(width: 0, height: 2)
+        ideasTextView.layer.shadowRadius = 10
+        ideasTextView.layer.shadowOpacity = 0.20
         
     }
     @objc func tapOnDateChangeButton() {
@@ -263,6 +290,16 @@ final class DefaultAddBirthdaysView: UIViewController, UINavigationControllerDel
     }
     @objc func tapDone() {
         view.endEditing(true)
+    }
+    
+    func requestAuthorization() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+            if granted {
+                print("Notification authorization granted")
+            } else {
+                print("Notification authorization denied")
+            }
+        }
     }
 }
 

@@ -9,6 +9,7 @@ final class DefaultMainView: UIViewController {
     private var tableView = UITableView()
     var birthdaysList = [Birthdays]() {
         didSet {
+            birthdaysList = sortBirthdaysByDate(birthdaysList)
             tableView.reloadData()
         }
     }
@@ -20,7 +21,6 @@ final class DefaultMainView: UIViewController {
         setupUI()
         setupTableView()
         setupBindings()
-        requestAuthorization()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,16 +69,57 @@ final class DefaultMainView: UIViewController {
         viewModel.transitionToAddNewBirthdays()
     }
     
-    func requestAuthorization() {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
-            if granted {
-                print("Notification authorization granted")
+    // MARK: - Helper Methods
+    
+    private func sortBirthdaysByDate(_ birthdays: [Birthdays]) -> [Birthdays] {
+        return birthdays.sorted { lhs, rhs in
+            guard let lhsDate = dateFormatter.date(from: lhs.dateBirthdays ?? ""),
+                  let rhsDate = dateFormatter.date(from: rhs.dateBirthdays ?? "") else {
+                return false
+            }
+            
+            let currentDate = Date()
+            let calendar = Calendar.current
+            let currentYear = calendar.component(.year, from: currentDate)
+            
+            var lhsNextBirthdayComponents = calendar.dateComponents([.day, .month], from: lhsDate)
+            lhsNextBirthdayComponents.year = currentYear
+            if let lhsNextBirthday = calendar.date(from: lhsNextBirthdayComponents),
+               lhsNextBirthday <= currentDate {
+                lhsNextBirthdayComponents.year = currentYear + 1
+            }
+            
+            var rhsNextBirthdayComponents = calendar.dateComponents([.day, .month], from: rhsDate)
+            rhsNextBirthdayComponents.year = currentYear
+            if let rhsNextBirthday = calendar.date(from: rhsNextBirthdayComponents),
+               rhsNextBirthday <= currentDate {
+                rhsNextBirthdayComponents.year = currentYear + 1
+            }
+            
+            let lhsComponents = calendar.dateComponents([.day], from: currentDate, to: calendar.date(from: lhsNextBirthdayComponents)!)
+            let rhsComponents = calendar.dateComponents([.day], from: currentDate, to: calendar.date(from: rhsNextBirthdayComponents)!)
+            
+            if let lhsDaysRemaining = lhsComponents.day, let rhsDaysRemaining = rhsComponents.day {
+                if lhsDaysRemaining == 365 {
+                    return true
+                } else if rhsDaysRemaining == 365 {
+                    return false
+                } else {
+                    return lhsDaysRemaining < rhsDaysRemaining
+                }
             } else {
-                print("Notification authorization denied")
+                return false
             }
         }
     }
+    
 }
+private let dateFormatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "dd.MM.yyyy"
+    return formatter
+}()
+
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
 

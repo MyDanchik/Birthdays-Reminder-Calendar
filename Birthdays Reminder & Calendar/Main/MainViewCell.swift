@@ -58,7 +58,7 @@ final class MainViewCell: UITableViewCell {
         infoView.leadingAnchor.constraint(equalTo: birthdaysImage.trailingAnchor).isActive = true
         
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        nameLabel.topAnchor.constraint(equalTo: infoView.topAnchor, constant: 10).isActive = true
+        nameLabel.topAnchor.constraint(equalTo: infoView.topAnchor, constant: 25).isActive = true
         nameLabel.leadingAnchor.constraint(equalTo: infoView.leadingAnchor, constant: 15).isActive = true
         nameLabel.trailingAnchor.constraint(equalTo: infoView.trailingAnchor, constant: -15).isActive = true
         
@@ -68,7 +68,7 @@ final class MainViewCell: UITableViewCell {
         surnameLabel.trailingAnchor.constraint(equalTo: infoView.trailingAnchor, constant: -15).isActive = true
         
         birthdaysLabel.translatesAutoresizingMaskIntoConstraints = false
-        birthdaysLabel.topAnchor.constraint(equalTo: surnameLabel.bottomAnchor, constant: 0).isActive = true
+        birthdaysLabel.centerYAnchor.constraint(equalTo: infoView.centerYAnchor).isActive = true
         birthdaysLabel.leadingAnchor.constraint(equalTo: infoView.leadingAnchor, constant: 15).isActive = true
         birthdaysLabel.trailingAnchor.constraint(equalTo: infoView.trailingAnchor, constant: -15).isActive = true
     }
@@ -86,16 +86,16 @@ final class MainViewCell: UITableViewCell {
         
         nameLabel.numberOfLines = 0
         nameLabel.font = UIFont(name: "Manrope-Medium", size: 18)
-        nameLabel.textAlignment = .right
+        nameLabel.textAlignment = .left
         nameLabel.textColor = .titleColors
         
         surnameLabel.numberOfLines = 0
         surnameLabel.font = UIFont(name: "Manrope-Medium", size: 18)
-        surnameLabel.textAlignment = .right
+        surnameLabel.textAlignment = .left
         surnameLabel.textColor = .titleColors
         
         birthdaysLabel.numberOfLines = 0
-        birthdaysLabel.font = UIFont(name: "Manrope-Bold", size: 18)
+        birthdaysLabel.font = UIFont(name: "Manrope-Bold", size: 14)
         birthdaysLabel.textAlignment = .right
         birthdaysLabel.textColor = .titleColors
         
@@ -113,24 +113,41 @@ final class MainViewCell: UITableViewCell {
         } else {
             self.birthdaysImage.image = UIImage(named: "default_image")
         }
+        
         nameLabel.text = birthdays.nameBirthdays
         surnameLabel.text = birthdays.surnameBirthdays
         
         if let releaseDate = birthdays.dateBirthdays {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "dd.MM.yyyy"
+            
             if let birthDate = dateFormatter.date(from: releaseDate) {
-                let age = calculateAge(from: birthDate)
-                birthdaysLabel.text = (NSLocalizedString("mainPage.birthdaysLabel", comment: "") + ": \(age)")
+                let currentDate = Date()
+                let calendar = Calendar.current
+                let currentYear = calendar.component(.year, from: currentDate)
+                var nextBirthdayComponents = calendar.dateComponents([.day, .month], from: birthDate)
+                nextBirthdayComponents.year = currentYear
+                
+                if let nextBirthday = calendar.date(from: nextBirthdayComponents), nextBirthday <= currentDate {
+                    nextBirthdayComponents.year = currentYear + 1
+                }
+                
+                if let nextBirthday = calendar.date(from: nextBirthdayComponents) {
+                    let components = calendar.dateComponents([.day], from: currentDate, to: nextBirthday)
+                    
+                    if let daysRemaining = components.day {
+                        if daysRemaining == 365 {
+                            birthdaysLabel.text = NSLocalizedString("mainPage.todayLabel", comment: "")
+                        } else if daysRemaining == 0 {
+                            birthdaysLabel.text = NSLocalizedString("mainPage.tomorrowLabel", comment: "")
+                        } else {
+                            birthdaysLabel.text = "\(daysRemaining)\n" + NSLocalizedString("mainPage.daysRemainingLabel", comment: "")
+                        }
+                    }
+                }
             }
         }
-    }
-    
-    func calculateAge(from birthday: Date) -> Int {
-        let currentDate = Date()
-        let calendar = Calendar.current
-        let ageComponents = calendar.dateComponents([.year], from: birthday, to: currentDate)
-        return ageComponents.year ?? 0
+
     }
 }
 

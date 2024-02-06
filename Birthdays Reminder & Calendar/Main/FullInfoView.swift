@@ -101,12 +101,12 @@ final class DefaulFullInfoView: UIViewController {
     }
     
     private func setupUI() {
-        view.backgroundColor = .backgroundAddScreen
-        
+        view.backgroundColor = .backgroundCell
+    
         imageView.backgroundColor = .black
         imageView.contentMode = .scaleAspectFill
         
-        infoView.backgroundColor = .backgroundAddScreen
+        infoView.backgroundColor = .backgroundMainScreen
         infoView.layer.cornerRadius = 16
         
         nameView.backgroundColor = .backgroundCell
@@ -148,9 +148,13 @@ final class DefaulFullInfoView: UIViewController {
         ideasTextView.backgroundColor = .backgroundCell
         ideasTextView.textColor = .titleColors
         ideasTextView.isEditable = false
-        ideasTextView.layer.borderWidth = 1
-        ideasTextView.layer.borderColor = UIColor.borderColors.cgColor
         ideasTextView.layer.cornerRadius = 10
+        
+        ideasTextView.layer.masksToBounds = false
+        ideasTextView.layer.shadowColor = UIColor.black.cgColor
+        ideasTextView.layer.shadowOffset = CGSize(width: 0, height: 2)
+        ideasTextView.layer.shadowRadius = 10
+        ideasTextView.layer.shadowOpacity = 0.20
     }
     
     // MARK: - Public Methods
